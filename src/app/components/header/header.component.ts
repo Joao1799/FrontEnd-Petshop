@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule,ButtonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
