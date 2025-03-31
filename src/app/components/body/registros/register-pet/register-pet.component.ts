@@ -12,12 +12,13 @@ import { HeaderComponent } from '../../../header/header.component';
 import { ServiceMainService } from '../../../../service-main.service';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AutoComplete } from 'primeng/autocomplete';
+import { FileUploadModule } from 'primeng/fileupload';
 
 
 @Component({
   selector: 'app-register-pet',
   standalone: true,
-  imports: [AutoCompleteModule,ButtonModule,ToastModule, MenubarModule, CommonModule,FormsModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, HeaderComponent],
+  imports: [AutoCompleteModule,ButtonModule,ToastModule, MenubarModule, CommonModule,FormsModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, HeaderComponent,FileUploadModule],
   templateUrl: './register-pet.component.html',
   styleUrl: './register-pet.component.scss'
 })
@@ -28,6 +29,7 @@ export class RegisterPetComponent {
   nomesFiltrados!: any;
   selectedOwner: string = '';
   idUsuario: any;
+  uploadedFiles: any[] = [];
 
   constructor(private fb: FormBuilder, public serviceMain: ServiceMainService,private messageService: MessageService){}
 
@@ -87,5 +89,14 @@ export class RegisterPetComponent {
       
     }
   }
+
+  
+  onUpload(event:any) {
+    for(let file of event.files) {
+        this.uploadedFiles.push(file);
+    }
+
+    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+}
 
 }

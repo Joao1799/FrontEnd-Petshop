@@ -6,11 +6,11 @@
 				<div>
 					<div class="infos">
 						<span class="type">Clientes:</span>
-						<h1 class="number">150</h1>
+						<h1 class="number">4533</h1>
 					</div>	
 					<div class="news">
-						<span>24 new</span>
-						<span>since last visit</span>
+						<span>+24 </span>
+						<span>na ultima semana</span>
 					</div>
 				</div>
 
@@ -22,51 +22,43 @@
 			<article class="boxCont" id="cliente">
 				<div>
 					<div class="infos">
-						<span class="type">Clientes:</span>
-						<h1 class="number">150</h1>
+						<span class="type">Pets:</span>
+						<h1 class="number">1521</h1>
 					</div>	
 					<div class="news">
-						<span>24 new</span>
-						<span>since last visit</span>
+						<span>+32 </span>
+						<span>na ultima semana</span>
 					</div>
 				</div>
 
 				<div class="icon">
-					<i style="font-size: 1.5rem" class="pi pi-user"></i>
+					<i style="font-size: 1.5rem" class="fa fa-dog"></i>
 				</div>
 			</article>
 			
 			<article class="boxCont" id="cliente">
 				<div>
 					<div class="infos">
-						<span class="type">Clientes:</span>
-						<h1 class="number">150</h1>
+						<span class="type">Atendimentos:</span>
+						<h1 class="number">356</h1>
 					</div>	
-					<div class="news">
-						<span>24 new</span>
-						<span>since last visit</span>
-					</div>
 				</div>
 
 				<div class="icon">
-					<i style="font-size: 1.5rem" class="pi pi-user"></i>
+					<i style="font-size: 1.5rem" class="pi pi-calendar"></i>
 				</div>
 			</article>
 			
 			<article class="boxCont" id="cliente">
 				<div>
 					<div class="infos">
-						<span class="type">Clientes:</span>
-						<h1 class="number">150</h1>
+						<span class="type">Total de Serviços:</span>
+						<h1 class="number">9832</h1>
 					</div>	
-					<div class="news">
-						<span>24 new</span>
-						<span>since last visit</span>
-					</div>
 				</div>
 
 				<div class="icon">
-					<i style="font-size: 1.5rem" class="pi pi-user"></i>
+					<i style="font-size: 1.5rem" class="pi pi-briefcase"></i>
 				</div>
 			</article>
 		</div>
@@ -153,81 +145,11 @@
 			<div class="table">
 				<div class="header">
 					<div class="title">
-						<h1>Tabela Clientes</h1>
+						<h1>Fluxo Geral</h1>
 					</div>
-					<div class="p-input-icon-right">
-						<i class="pi pi-search"></i>
-						<input pInputText type="text" [(ngModel)]="campoPesquisa" (input)="filtrarTabela()" placeholder="Pesquise um cliente" />
-					</div>
+
 				</div>
-				<p-table [value]="listaFiltrada" scrollHeight="65vh" [scrollable]="true" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[1,5, 10, 20]"
-				dataKey="id" >
-					<ng-template pTemplate="header">
-						<tr>
-							<th style="width: 5rem"></th>
-							<th>Nome</th>
-							<th>Email</th>
-							<th>Telefone</th>
-							<th>CPF</th>
-							<th>Remover</th>
-						</tr>
-					</ng-template>
-					<ng-template pTemplate="body" let-users let-expanded="expanded">
-						<tr>
-							<td>
-								<p-button type="button" pButton  pRipple [pRowToggler]="users" [text]="true" [rounded]="true" [plain]="true" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" />
-							</td>
-							<td>
-								<span class="link">
-									{{ users.ownerName }}		
-								</span>
-							</td>
-							<td>{{ users.email }}</td>
-							<td>{{ users.telefone }}</td>
-							<td>{{ users.CPF }}</td> 
-							<td>	
-								<p-button (click)="deleteUser(users.id)" icon="pi pi-trash" class="btnExcluir" />
-							</td>					
-						</tr>
-					</ng-template>
-					<ng-template pTemplate="rowexpansion" let-users>
-						<tr>
-							<td colspan="6">
-								<p-table [value]="users.pets" dataKey="id">
-									<ng-template pTemplate="header">
-										<tr>
-											<th pSortableColumn="customer">Nome</th>
-											<th pSortableColumn="date">Raça</th>
-											<th pSortableColumn="amount">Idade</th>
-											<th pSortableColumn="status">Dono</th>
-											<th pSortableColumn="id">Atendimento</th>
-										</tr>
-									</ng-template>
-									<ng-template pTemplate="body" let-pet>
-										<tr>
-											<td>
-												<span class="link">
-													{{ pet.name }}	
-												</span>
-											</td>
-											<td>{{ pet.breed }}</td>
-											<td>{{ pet.age }}</td>
-											<td>{{ users.ownerName }}</td>
-											<td>
-												{{ users.atendimentos.length > 0 ? users.atendimentos[0].tipo : 'Nenhum atendimento' }}
-											</td>
-										</tr>
-									</ng-template>
-									<ng-template pTemplate="emptymessage">
-										<tr>
-											<td colspan="4">Este usuario não possui Pet cadastrado!</td>
-										</tr>
-									</ng-template>
-								</p-table>
-							</td>
-						</tr>
-					</ng-template>
-				</p-table>
+				<p-chart type="line" [data]="data" [options]="options" />
 			</div>
 		</div>
 

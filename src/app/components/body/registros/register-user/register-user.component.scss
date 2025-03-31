@@ -1,74 +1,106 @@
 .main-container {
-    width: 100%;
-    overflow-y: hidden;
-  }
-  
-
-  .body-main {
-    min-height: 90vh;
+  width: 100%;
+  height: 100%;
+  padding: 24px;
+.body-main {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 16px;
+  box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.11);
+  border-radius: 10px;
+  header{
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+    img{
+      width: 50px;
+      height: 50px;
+    }
     h1 {
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: left;
       font-size: 2.5rem;
       padding-bottom: 10px;
-      color: white;
+      color: #0075eb;
     }
-    article {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-  
-      .container {
-        width: 70%;
-        display: flex;
-        justify-content: center;
-        form{
-            display: flex;
-            flex-direction: column;
-            background-color: #0075eb;
-            width: 50%;
-            height: 100%;
-            border-radius: 10px;
-            gap: 20px;
-            padding: 24px;
-            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.5);
-            article{
-                justify-content: center;
-                align-items: left;
-                flex-direction: column;
-                height: 20%;
-                gap: 8px;
-                label{
-                    display: flex;
-                    justify-content: left;
-                    width: 100%;
-                    font-weight: bold;
-                    color: white;
-                    font-size: 18px;
-                }
-                input,p-multiSelect{
-                    width: 100%;
-                }
-                
-            }
+  }
 
-            .btnFooter{
-              width: 100%;
+    .container {
+      form{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+          gap: 20px;
+
+          #espec{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .infos{
               display: flex;
-              justify-content: right;
+              flex-direction: column;
+              width: 100%;
             }
-        }
-      }
-      .pet-img {
-        width: 250px;
-        height: auto;
-        margin: 10px auto;
+          }
+
+          #cep{
+            width: 25%;
+          }
+          article{
+              justify-content: center;
+              align-items: left;
+              flex-direction: column;
+              height: 20%;
+              gap: 8px;
+              label{
+                  display: flex;
+                  justify-content: left;
+                  width: 100%;
+                  font-weight: 400;
+                  color: #0075eb;
+                  font-size: 18px;
+              }
+              input,p-multiSelect,p-autoComplete,.p-autoComplete-input{
+                  width: 100%;
+              }
+              
+          }
+
+          .btnFooter{
+            width: 100%;
+            display: flex;
+            justify-content: right;
+          }
       }
     }
   }
-  
+}  
+
+
+::ng-deep{
+  .p-inputwrapper,.p-autocomplete-input{
+      width: 100%;
+  }
+  .p-fileupload .p-fileupload-buttonbar {
+    padding: 0.745rem;
+    gap: 10px;
+    display: flex;
+    .p-button{
+      padding: 0.345rem;
+      gap: 6px;
+      .p-button-label {
+        transition-duration: 0.2s;
+        font-weight: 400;
+    }
+    }
+  }
+
+  .p-fileupload .p-fileupload-content {
+    padding: 1rem .7rem;
+    max-height: 15vh;
+    overflow-y: auto;
+  }
+}

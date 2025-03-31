@@ -21,11 +21,17 @@
     .contadores {
         grid-template-columns: repeat(2, 1fr);
     }
+    .container{
+      grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 @media (max-width: 992px) {
     .contadores {
         grid-template-columns: repeat(1, 1fr);
+    }
+    .container{
+      grid-template-columns: repeat(1, 1fr);
     }
 }
 
@@ -94,6 +100,7 @@
         padding: 16px;
         box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.11);
         border-radius: 10px;
+        overflow: auto;
 
       .header{
         padding-bottom: 8px;

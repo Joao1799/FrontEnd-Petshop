@@ -1,42 +1,50 @@
 .main-container {
     width: 100%;
-    overflow-y: hidden;
-  }
-  
-
+    height: 100%;
+    padding: 24px;
   .body-main {
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    h1 {
-      width: 100%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    padding: 16px;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    header{
       display: flex;
-      justify-content: center;
-      font-size: 2.5rem;
-      padding-bottom: 10px;
-      color: white;
-    }
-    article {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      width: 100%;
-      height: 100%;
-  
-      .container {
-        width: 70%;
+      justify-content: space-around;
+      img{
+        width: 50px;
+        height: 50px;
+      }
+      h1 {
+        width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: left;
+        font-size: 2.5rem;
+        padding-bottom: 10px;
+        color: #0075eb;
+      }
+    }
+
+      .container {
         form{
             display: flex;
             flex-direction: column;
-            background-color: #0075eb;
-            width: 50%;
+            width: 100%;
             height: 100%;
-            border-radius: 10px;
             gap: 20px;
-            padding: 24px;
-            box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.5);
+
+            #espec{
+              display: flex;
+              flex-direction: row;
+              justify-content: space-between;
+
+              .infos{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+              }
+            }
             article{
                 justify-content: center;
                 align-items: left;
@@ -47,8 +55,8 @@
                     display: flex;
                     justify-content: left;
                     width: 100%;
-                    font-weight: bold;
-                    color: white;
+                    font-weight: 400;
+                    color: #0075eb;
                     font-size: 18px;
                 }
                 input,p-multiSelect,p-autoComplete,.p-autoComplete-input{
@@ -64,18 +72,31 @@
             }
         }
       }
-      .pet-img {
-        width: 250px;
-        height: auto;
-        margin: 10px auto;
-      }
     }
-  }
+  }  
 
 
 ::ng-deep{
     .p-inputwrapper,.p-autocomplete-input{
         width: 100%;
+    }
+    .p-fileupload .p-fileupload-buttonbar {
+      padding: 0.745rem;
+      gap: 10px;
+      display: flex;
+      .p-button{
+        padding: 0.345rem;
+        gap: 6px;
+        .p-button-label {
+          transition-duration: 0.2s;
+          font-weight: 400;
+      }
+      }
+    }
 
+    .p-fileupload .p-fileupload-content {
+      padding: 1rem .7rem;
+      max-height: 15vh;
+      overflow-y: auto;
     }
 }

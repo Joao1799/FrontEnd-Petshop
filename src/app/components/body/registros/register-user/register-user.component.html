@@ -1,15 +1,16 @@
 <section class="main-container">
     <div class="body-main">
-    <article class="body">
-        <img src="images/Cat.svg" alt="" class="pet-img">
         <div class="container">
             <form [formGroup]="formUserRegister">
-                <h1>Registrar Cliente</h1>
+                <header>
+                    <h1>Cadastro de Responsavel</h1>
+                    <img src="images/person.png" alt="">
+                </header>
                 <article>
                     <label for="">Nome completo:</label>
                     <input type="text" pInputText formControlName="ownerName" />
                 </article>
-                
+
                 <article>
                     <label for="">Email:</label>
                     <input type="text" pInputText formControlName="email" />
@@ -20,19 +21,46 @@
                     <input type="text" pInputText formControlName="CPF" />
                 </article>
 
-                <article>
-                    <label for="">telefone:</label>
+                <article id="espec">
+                    <div class="infos">
+                        <label for="">telefone:</label>
+                        <input type="text" pInputText formControlName="telefone" />
+                    </div>
+                    <div class="infos">
+                        <label for="">Idade:</label>
+                        <input type="text" pInputText formControlName="telefone" />
+                    </div>
+                </article>
+
+                <article id="cep">
+                    <label for="">CEP:</label>
                     <input type="text" pInputText formControlName="telefone" />
                 </article>
 
-                <p-button type="button" class="btnFooter" label="Registrar" [raised]="true" (click)="registerUser()" />
+                <article id="espec">
+                    <div class="infos">
+                        <label for="">Endereço:</label>
+                        <input type="text" pInputText formControlName="telefone" />
+                    </div>
+                    <div class="infos">
+                        <label for="">Bairro:</label>
+                        <input type="text" pInputText formControlName="telefone" />
+                    </div>
+                </article>
+                <article id="espec">
+                    <div class="infos">
+                        <label for="">Estado:</label>
+                        <input type="text" pInputText formControlName="telefone" />
+                    </div>
+                    <div class="infos">
+                        <label for="">Complemento:</label>
+                        <input type="text" pInputText formControlName="telefone" />
+                    </div>
+                </article>
+                <p-button type="button" class="btnFooter" label="Cadastrar" [raised]="true" (click)="registerUser()" />
             </form>
-        
         </div>
-        <img src="images/Dog.svg" alt="" class="pet-img">
-
-    </article>
-</div>
+    </div>
 
 </section>
 

@@ -1,48 +1,65 @@
 <section class="main-container">
     <div class="body-main">
-    <article class="body">
-        <img src="images/Cat.svg" alt="" class="pet-img">
-        <div class="container">
-            <form [formGroup]="formPetRegister">
-                <h1>Registrar PET</h1>
-                <article>
-                    <label for="">Nome do PET:</label>
-                    <input type="text" pInputText formControlName="name" />
-                </article>
+            <div class="container">
+                <form [formGroup]="formPetRegister">
+                    <header>
+                        <h1>Cadastro de PET</h1>
+                        <img src="images/Cat.svg" alt="">
+                    </header>
+                    <article>
+                        <label for="">Nome do PET:</label>
+                        <input type="text" pInputText formControlName="name" />
+                    </article>
 
-                <article>
-                    <label for="">Espécie:</label>
-                    <input type="text" pInputText formControlName="species" />
-                </article>
+                    <article id="espec">
+                        <div class="infos">
+                            <label for="">Espécie:</label>
+                            <input type="text" pInputText formControlName="species" />
+                        </div>
+                        <div class="infos">
+                            <label for="">Raça:</label>
+                            <input type="text" pInputText formControlName="breed" />
+                        </div>
+                    </article>
 
-                <article>
-                    <label for="">idade:</label>
-                    <input type="text" pInputText formControlName="age" />
-                </article>
+                    <article>
+                        <label for="">Idade:</label>
+                        <input type="text" pInputText formControlName="age" />
+                    </article>
 
-                <article>
-                    <label for="">Raça:</label>
-                    <input type="text" pInputText formControlName="breed" />
-                </article>
+                    <article>
+                        <label for="">Nome do Responsavel:</label>
+                        <p-autoComplete [suggestions]="nomesFiltrados" (completeMethod)="filtroAC($event)" field="owner"
+                            (onSelect)="onOwnerSelect($event)" [autoHighlight]="true">
+                        </p-autoComplete>
+                    </article>
 
-                <article>
-                    <label for="">Nome do Dono:</label>
-                    <p-autoComplete 
-                    [suggestions]="nomesFiltrados" 
-                    (completeMethod)="filtroAC($event)" 
-                    field="owner" 
-                    (onSelect)="onOwnerSelect($event)" 
-                    [autoHighlight]="true">
-                    </p-autoComplete>              
-                </article>                             
-                <p-button type="button" class="btnFooter" label="Registrar" [raised]="true" (click)="registerPet()" />
-            </form>
-        
-        </div>
-        <img src="images/Dog.svg" alt="" class="pet-img">
-
-    </article>
-</div>
+                    <div class="card flex justify-content-center">
+                        <p-toast />
+                        <p-fileUpload 
+                            name="demo[]" 
+                            url="https://www.primefaces.org/cdn/api/upload.php" 
+                            (onUpload)="onUpload($event)" 
+                            [multiple]="true" 
+                            chooseLabel="Selecionar Arquivo"
+                            uploadLabel="Upload Arquivo"
+                            cancelLabel="Cancelar envio"
+                            accept="image/*" 
+                            maxFileSize="1000000">
+                                <ng-template pTemplate="content">
+                                    <ul *ngIf="uploadedFiles.length">
+                                        <li *ngFor="let file of uploadedFiles">
+                                            {{ file.name }} - {{ file.size }} bytes
+                                        </li>
+                                    </ul>
+                                </ng-template>
+                        </p-fileUpload>
+                    </div>
+                    <p-button type="button" class="btnFooter" label="Cadastrar" [raised]="true"
+                        (click)="registerPet()" />
+                </form>
+            </div>
+    </div>
 
 </section>
 
