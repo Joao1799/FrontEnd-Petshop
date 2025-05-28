@@ -5,6 +5,7 @@ import { RegisterServiceComponent } from './components/body/registros/register-s
 import { RegisterUserComponent } from './components/body/registros/register-user/register-user.component';
 import { LoginComponent } from './components/login/login.component';
 import { BodyComponent } from './components/body/body.component';
+import { CalendarServiceComponent } from './components/body/registros/calendar-service/calendar-service.component';
 
 
 export const routes: Routes = [
@@ -18,6 +19,7 @@ export const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'registrarUsuario', component: RegisterUserComponent },
       { path: 'registrarPet', component: RegisterPetComponent },
+      { path: 'calendarService', component: CalendarServiceComponent },
       { path: 'registrarServico', component: RegisterServiceComponent },
     ]
   }

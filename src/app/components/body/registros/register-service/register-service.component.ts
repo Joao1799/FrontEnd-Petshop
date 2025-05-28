@@ -71,8 +71,6 @@ export class RegisterServiceComponent {
     if (selectedUser.pets && selectedUser.pets.length > 0) {
       this.idPet = selectedUser.pets[0].id;
     }
-
-    
     this.formUserService.patchValue({ 
       userId: this.idUsuario,
       petId: this.idPet
@@ -82,21 +80,22 @@ export class RegisterServiceComponent {
 
   forms(){
     this.formUserService = this.fb.group({
-      tipo:['', Validators.required],
-      dataHora:['', Validators.required],
-      atendido:[false, Validators.required],
-      userId:['', Validators.required],
-      petId:['', Validators.required],
-    })
+      motivo: ['', Validators.required],
+      dataHora: ['', Validators.required],
+      responsavel: ['', Validators.required],
+      veterinario: ['', Validators.required],
+      observacoes: [''],
+      status: ['', Validators.required]
+    });
   }
 
   registerService(){
-    console.log(this.idPet);
-    console.log(this.formUserService.value);
-    if(this.formUserService.valid){
-      
+    if (this.formUserService.valid) {
+      console.log('Dados do formulário:', this.formUserService.value);
+    } else {
+      console.warn('Formulário inválido');
+      this.formUserService.markAllAsTouched();
     }
-
   }
 
 }

@@ -1,38 +1,50 @@
 <section class="main-container">
     <div class="body-main">
-    <article class="body">
-        <img src="images/Cat.svg" alt="" class="pet-img">
         <div class="container">
             <form [formGroup]="formUserService">
-                <h1>Registrar Atendimento</h1>
+                <header>
+                    <h1>Cadastro de PET</h1>
+                    <img src="images/Cat.svg" alt="">
+                </header>
                 <article>
-                    <label for="">Motivo do Atendimento:</label>
-                    <input type="text" pInputText formControlName="tipo" />
+                    <label>Motivo do Atendimento:</label>
+                    <input type="text" pInputText formControlName="motivo" />
                 </article>
+
                 <article>
-                    <label for="">Data e Hora do Atendimento:</label>
+                    <label>Data e hora do atendimento:</label>
                     <input type="text" pInputText formControlName="dataHora" />
                 </article>
+
                 <article>
-                    <label for="">Responsavel/Pet:</label>
-                    <p-autoComplete 
-                    [suggestions]="filteredUsers" 
-                    field="ownerName" 
-                    (onSelect)="onOwnerSelect($event)" 
-                    [autoHighlight]="true"
-                    (completeMethod)="filterUsers($event)">
-                    </p-autoComplete>
+                    <label>Responsável:</label>
+                    <input type="text" pInputText formControlName="responsavel" />
                 </article>
 
-                <p-button type="button" class="btnFooter" label="Registrar" [raised]="true" (click)="registerService()" />
+                <article>
+                    <label>Veterinário ou funcionário responsável:</label>
+                    <input type="text" pInputText formControlName="veterinario" />
+                </article>
+
+                <article>
+                    <label>Observações gerais:</label>
+                    <input type="text" pInputText formControlName="observacoes" />
+                </article>
+
+                <article>
+                    <label>Status do atendimento:</label>
+                    <input type="text" pInputText formControlName="status" />
+                </article>
+
+
+                <div class="card flex justify-content-center">
+                    <p-toast />
+                </div>
+                <p-button type="button" class="btnFooter" label="Registrar" [raised]="true"
+                    (click)="registerService()" />
             </form>
-        
         </div>
-        <img src="images/Dog.svg" alt="" class="pet-img">
-
-    </article>
-</div>
-
+    </div>
 </section>
 
 <p-toast />
