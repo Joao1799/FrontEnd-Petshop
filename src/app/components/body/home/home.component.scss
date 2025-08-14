@@ -15,7 +15,62 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
     padding-bottom: 2rem;
-}
+
+    .news{
+      color: #59c019;
+    }
+
+    .azul {
+        background-color: #E3F2FD;
+    }
+    .azul .type,
+    .azul .number,
+    .azul .icon i {
+        color: #007BFF;
+    }
+
+    .azul .icon i{
+      background-color: #8fc6eebb;
+    }
+
+    .vermelho {
+        background-color: #FFEBEE;
+    }
+    .vermelho .type,
+    .vermelho .number,
+    .vermelho .icon i {
+        color: #DC3545;
+    }
+
+    .vermelho .icon i{
+      background-color: #dc354644;
+    }
+
+    .verde {
+        background-color: #E8F5E9;
+    }
+    .verde .type,
+    .verde .number,
+    .verde .icon i {
+        color: #28A745;
+    }
+    .verde .icon i{
+      background-color: #b7e7bbd9;
+    }
+
+    .laranja {
+        background-color: #FFF3E0;
+    }
+    .laranja .type,
+    .laranja .number,
+    .laranja .icon i {
+        color: #FF8800;
+    }
+    .laranja .icon i{
+      background-color: #f4cf935e;
+    }
+  }
+  
 
 @media (max-width: 1200px) {
     .contadores {

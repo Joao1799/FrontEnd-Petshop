@@ -28,6 +28,11 @@ export class HeaderComponent {
           routerLink: '/home'
       },
       {
+          label:'Registros',
+          icon: 'pi pi-home',
+          routerLink: '/home'
+      },
+      {
           label:'Atendimentos',
           icon: 'pi pi-calendar'
       },

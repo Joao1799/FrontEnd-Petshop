@@ -37,11 +37,11 @@ export class LoginComponent {
   
     loginUserFunc() {
       if (this.formUserlogin.valid) {
+        this.router.navigate(['home']);
         this.serviceMainService.loginUserFunc(this.formUserlogin.value).subscribe((res) => {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login realizado com Sucesso' });
         console.log(res);
         this.liberarAcesso.emit(true);
-        this.router.navigate(['home']);
         });
       } else {
         console.log('Formulário inválido',this.formUserlogin.value);

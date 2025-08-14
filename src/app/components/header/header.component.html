@@ -1,10 +1,12 @@
 <header class="container">
-    <!-- <p-menubar [model]="items" autoDisplay="false"/> -->
-    
     <div class="menu">
+        <!-- Menu principal -->
         <button routerLink="/home">
             <i class="pi pi-home"></i> Dashboard
         </button>
+
+        <!-- Grupo Registros -->
+        <button class="group-title" disabled>Registros</button>
         <button routerLink="/registrarUsuario">
             <i class="pi pi-user-plus"></i> Cliente
         </button>
@@ -16,6 +18,21 @@
         </button>
         <button routerLink="/calendarService">
             <i class="pi pi-calendar"></i> Atendimentos
+        </button>
+
+        <!-- Grupo Tabelas -->
+        <button class="group-title" disabled>Tabelas</button>
+        <button routerLink="/tabelaCliente">
+            <i class="fa fa-table"></i> Tabelas Cliente
+        </button>
+        <button routerLink="/tabelaPet">
+            <i class="fa fa-table"></i> Tabelas Pet
+        </button>
+        <button routerLink="/tabelaServico">
+            <i class="fa fa-table"></i> Tabelas Serviço
+        </button>
+        <button routerLink="/tabelaAtendimentos">
+            <i class="fa fa-table"></i> Tabelas Atendimentos
         </button>
     </div>
 </header>

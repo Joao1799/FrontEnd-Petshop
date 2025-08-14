@@ -1,11 +1,12 @@
 <div class="container">
     <div class="banner">
         <div class="logo">
-            <img src="/images/My_Pet_Care noBG.png" alt="">
+            <img src="/images/logo.png"  alt="">
         </div>
         <div class="user">
-            <label for="">João Victor </label>
-            <div class="img"></div>
+            <label for="">João Victor - ADM</label>
+            <img class="img" (click)="showDialog()" src="/images/user.png"  alt="">
+
         </div>
     </div>
     <div class="main">
@@ -15,3 +16,34 @@
         </div>
     </div>
 </div>
+
+<p-dialog *ngIf="isBrowser" header="Editar Perfil" [modal]="true" [(visible)]="visible" [style]="{ width: '28rem' }" [baseZIndex]="10000" class="profile-dialog">
+    <div class="profile-header">
+    <div class="profile-photo-container">
+      <img class="profile-photo img" src="/images/user.png"  alt="">
+
+      <p-button icon="pi pi-camera" [rounded]="true" [text]="true" [raised]="true" class="btn-cam"/>
+    </div>
+  </div>
+
+  <div class="profile-fields">
+    <div class="field">
+      <label for="name">Nome</label>
+      <input pInputText id="name" placeholder="Seu nome" />
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input pInputText id="email" placeholder="Seu email" />
+    </div>
+    <div class="field">
+      <label for="role">Cargo</label>
+      <input pInputText id="role" placeholder="Seu cargo" />
+    </div>
+  </div>
+
+  <div class="profile-actions">
+    <p-button label="Fechar" severity="secondary" (onClick)="visible = false" class="action-btn"/>
+    <p-button label="Salvar"  class="action-btn"/>
+  </div>
+
+</p-dialog>
