@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { HeaderComponent } from "../header/header.component";
+import { menuLateralrComponent } from "../menuLateral/menuLateral.component";
 import { DialogModule } from 'primeng/dialog';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth.service';
 import { MessageService } from 'primeng/api';
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-body',
     standalone: true,
     templateUrl: './body.component.html',
     styleUrl: './body.component.scss',
-    imports: [CommonModule,ButtonModule,InputTextModule,RouterOutlet, HeaderComponent,DialogModule]
+    imports: [CommonModule,ButtonModule,InputTextModule,RouterOutlet, menuLateralrComponent,DialogModule,FormsModule]
 })
 export class BodyComponent {
     visible: boolean = false;
@@ -21,6 +22,7 @@ export class BodyComponent {
     infosUsuarioLogado!: any | null;
     cargo!: string | null;
     name!: string | null;
+    email!: any;
 
     constructor(
         private router: Router,
@@ -42,6 +44,7 @@ export class BodyComponent {
     this.infosUsuarioLogado = this.getInfoUser();
     this.cargo = this.infosUsuarioLogado.cargo
     this.name = this.infosUsuarioLogado.name
+    this.email = this.infosUsuarioLogado.email
     }
 
     logout() {

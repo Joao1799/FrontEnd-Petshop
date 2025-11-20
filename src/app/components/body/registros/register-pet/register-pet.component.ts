@@ -8,7 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
-import { HeaderComponent } from '../../../header/header.component';
+import { menuLateralrComponent } from '../../../menuLateral/menuLateral.component';
 import { ServiceMainService } from '../../../../service-main.service';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { AutoComplete } from 'primeng/autocomplete';
@@ -18,7 +18,7 @@ import { FileUploadModule } from 'primeng/fileupload';
 @Component({
   selector: 'app-register-pet',
   standalone: true,
-  imports: [AutoCompleteModule,ButtonModule,ToastModule, MenubarModule, CommonModule,FormsModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, HeaderComponent,FileUploadModule],
+  imports: [AutoCompleteModule,ButtonModule,ToastModule, MenubarModule, CommonModule,FormsModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, menuLateralrComponent,FileUploadModule],
   templateUrl: './register-pet.component.html',
   styleUrl: './register-pet.component.scss'
 })

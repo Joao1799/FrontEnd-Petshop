@@ -10,7 +10,7 @@
         </div>
     </div>
     <div class="main">
-        <app-header></app-header>
+        <app-menuLateral></app-menuLateral>
         <div class="content">
             <router-outlet></router-outlet>
         </div>
@@ -29,22 +29,22 @@
   <div class="profile-fields">
     <div class="field">
       <label for="name">Nome</label>
-      <input pInputText id="name" placeholder="Seu nome" />
+      <input pInputText id="name" [(ngModel)]="name" placeholder="Seu nome" />
     </div>
     <div class="field">
       <label for="email">Email</label>
-      <input pInputText id="email" placeholder="Seu email" />
+      <input pInputText id="email" [(ngModel)]="email" placeholder="Seu email" />
     </div>
     <div class="field">
       <label for="role">Cargo</label>
-      <input pInputText id="role" placeholder="Seu cargo" />
+      <input pInputText id="cargo" [(ngModel)]="cargo" placeholder="Seu cargo" />
     </div>
   </div>
 
   <div class="profile-actions">
-    <button pButton label="LogOut" severity="secondary" (click)="logout()" class="action-btn"> </button>
+    <button pButton label="LogOut" severity="secondary"  [outlined]="true" (click)="logout()" class="btnLogout"> </button>
     <div >
-      <button pButton  label="Fechar" severity="secondary" (click)="visible = false" class="action-btn"></button>
+      <button pButton  label="Fechar" severity="secondary"  (click)="visible = false" class="action-btn"></button>
       <button pButton label="Salvar"  class="action-btn"></button>
     </div>
   </div>

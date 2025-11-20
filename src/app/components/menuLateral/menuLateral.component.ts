@@ -5,13 +5,13 @@ import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
-  selector: 'app-header',
+  selector: 'app-menuLateral',
   standalone: true,
   imports: [MenubarModule,ButtonModule],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  templateUrl: './menuLateral.component.html',
+  styleUrl: './menuLateral.component.scss'
 })
-export class HeaderComponent {
+export class menuLateralrComponent {
   items: MenuItem[] = [];
 
     constructor(private router: Router){};

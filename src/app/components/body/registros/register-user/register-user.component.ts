@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
-import { HeaderComponent } from '../../../header/header.component';
+import { menuLateralrComponent } from '../../../menuLateral/menuLateral.component';
 import { ServiceMainService } from '../../../../service-main.service';
 
 @Component({
@@ -15,7 +15,7 @@ import { ServiceMainService } from '../../../../service-main.service';
     standalone: true,
     templateUrl: './register-user.component.html',
     styleUrl: './register-user.component.scss',
-    imports: [ButtonModule,ToastModule, MenubarModule, CommonModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, HeaderComponent]
+    imports: [ButtonModule,ToastModule, MenubarModule, CommonModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, menuLateralrComponent]
 })
 export class RegisterUserComponent {
   items:  MenuItem[] | undefined;
