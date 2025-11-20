@@ -127,7 +127,8 @@
 
                         footer{
                             display: flex;
-                            gap: 25%;
+                            justify-content: space-between;
+
 
                         .p-button.p-button-secondary{
                             color: #3B82F6;
@@ -137,7 +138,6 @@
                         }
 
                         .btnFooter{
-                            width: 100%;
                             display: flex;
                             justify-content: end;
                         }

@@ -53,28 +53,20 @@ export class LoginComponent {
         this.serviceMainService.loginUserFunc(this.formUserlogin.value).subscribe({
            next: (res) => {
             console.log(res.user)
-            // SALVAR TOKEN
+            // SALVA o TOKEN
             localStorage.setItem('token', res.token);
             localStorage.setItem('usuarioLogado', JSON.stringify(res.user));
 
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Success',
-              detail: 'Login realizado com Sucesso'
-            });
+            this.messageService.add({severity: 'success',summary: 'Success',detail: 'Login realizado com Sucesso'});
             this.router.navigate(['home'])
           },
           error: (error) => {
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Error',
-              detail: `"Error inesperado!" + ${error.error.msg}`
-            });
+            this.messageService.add({severity: 'error',summary: 'Error',detail: `"Error inesperado!" + ${error.error.msg}`});
           } 
         });
       } 
       else {
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email ou senha inválidos' });
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Preencha os campos corretamente' });
       }
     }
 
@@ -86,29 +78,17 @@ export class LoginComponent {
     if (this.formUserRegistro.valid) {
       this.serviceMainService.registerUserFunc(this.formUserRegistro.value).subscribe({
           next: (res) => {
-            this.messageService.add({
-              severity: 'success',
-              summary: 'Success',
-              detail: 'Conta criada com Sucesso'
-            });
+            this.messageService.add({ severity: 'success', summary: 'Success',detail: 'Conta criada com Sucesso'});
             this.isRegistro = !this.isRegistro;
           },
           error: (error) => {
             console.log(error);
             
-            this.messageService.add({
-              severity: 'error',
-              summary: 'Error',
-              detail: `"Error inesperado! " + ${error.error.msg}`
-            });
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: `"Error inesperado! " + ${error.error.msg}`});
           }
         });
     } else {
-      this.messageService.add({
-        severity: 'error',
-        summary: 'Error',
-        detail: 'Preencha os campos corretamente'
-      });
+      this.messageService.add({severity: 'error', summary: 'Error', detail: 'Preencha os campos corretamente'});
     }
   }
 

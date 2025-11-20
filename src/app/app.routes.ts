@@ -15,7 +15,7 @@ export const routes: Routes = [
 
  // rotas estão aninhadas dentro do BodyComponent.
   { 
-    path: '',component: BodyComponent, 
+    path: '',component: BodyComponent,canActivate: [AuthGuard], 
     children: [
       { path: 'home', component: HomeComponent,canActivate: [AuthGuard] },
       { path: 'registrarUsuario', component: RegisterUserComponent,canActivate: [AuthGuard] },
