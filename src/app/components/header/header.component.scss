@@ -6,26 +6,46 @@
     gap: 8px;
     padding: 16px 0px;
 }
-
-.menu button {
-    border: none;
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 0.75rem 1rem;
-    color: #0075eb;
-    cursor: pointer;
+article {
+    display: flex;
+    align-items: center;     
+    justify-content: space-between; 
+    padding: 10px 15px;
+    border-radius: 6px;
+    
     transition: 0.2s;
-    background-color: white;
-    text-align: left;
-    margin: 0px 5px;
+    flex-wrap: wrap;
 }
 
-.menu button:hover:not(.group-title) {
+article button {
+    flex: 1;                
+    text-align: left;        
+    background: none;
+    border: none;
+    color: #0075eb;
+    font-size: 1rem;
+    padding: 0;
+}
+
+article i {
+    font-size: 1.2rem;
+    margin-left: 8px;
+    color: #0075eb;
+    min-width: 20px;         
+}
+
+article:hover {
     background-color: #0075eb;
-    color: white;
+    cursor: pointer;
 }
 
-/* Estilo para títulos de grupo */
+article:hover button,
+article:hover i {
+    color: white;
+    cursor: pointer;
+}
+
+
 .menu button.group-title {
     font-weight: 700;
     color: #0076ebe6;
@@ -33,14 +53,14 @@
     background-color: #0076eb25;
     pointer-events: none; 
     margin-top: 16px; 
-    
+    border: none;
+    padding: 10px 15px;
 }
 
 .menu .group-title {
     margin: 0; 
 }
 
-/* Ícones */
 .menu button i {
     margin-right: 8px;
 }

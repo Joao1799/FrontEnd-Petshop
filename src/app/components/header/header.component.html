@@ -1,38 +1,54 @@
 <header class="container">
-    <div class="menu">
-        <!-- Menu principal -->
-        <button routerLink="/home">
-            <i class="pi pi-home"></i> Dashboard
-        </button>
+  <div class="menu">
+    <!-- Menu principal -->
+    <article routerLink="/home">
+      <button >Dashboard</button>
+      <i class="pi pi-home"></i>
+    </article>
 
-        <!-- Grupo Registros -->
-        <button class="group-title" disabled>Registros</button>
-        <button routerLink="/registrarUsuario">
-            <i class="pi pi-user-plus"></i> Cliente
-        </button>
-        <button routerLink="/registrarPet">
-            <i class="fa fa-dog"></i> Pet
-        </button>
-        <button routerLink="/registrarServico">
-            <i class="fa fa-calendar-days"></i> Serviço
-        </button>
-        <button routerLink="/calendarService">
-            <i class="pi pi-calendar"></i> Atendimentos
-        </button>
+    <!-- Grupo Registros -->
+    <button class="group-title" disabled>Registros</button>
+    <article routerLink="/registrarUsuario">
+      <button >Cliente</button>
+      <i class="pi pi-user-plus"></i>
+    </article>
 
-        <!-- Grupo Tabelas -->
-        <button class="group-title" disabled>Tabelas</button>
-        <button routerLink="/tabelaCliente">
-            <i class="fa fa-table"></i> Tabelas Cliente
-        </button>
-        <button routerLink="/tabelaPet">
-            <i class="fa fa-table"></i> Tabelas Pet
-        </button>
-        <button routerLink="/tabelaServico">
-            <i class="fa fa-table"></i> Tabelas Serviço
-        </button>
-        <button routerLink="/tabelaAtendimentos">
-            <i class="fa fa-table"></i> Tabelas Atendimentos
-        </button>
-    </div>
+    <article routerLink="/registrarPet">
+      <button>Pet</button>
+      <i class="fa fa-dog"></i>
+    </article>
+
+    <article routerLink="/registrarServico">
+      <button >Serviço</button>
+      <i class="fa fa-calendar-days"></i>
+    </article>
+
+    <article routerLink="/calendarService">
+      <button >Atendimentos</button>
+      <i class="pi pi-calendar"></i>
+    </article>
+
+    <!-- Grupo Tabelas -->
+    <button class="group-title" disabled>Tabelas</button>
+
+    <article routerLink="/tbCliente">
+      <button >Tabelas Cliente</button>
+      <i class="fa fa-table"></i>
+    </article>
+
+    <article routerLink="/tbPet">
+      <button >Tabelas Pet</button>
+      <i class="fa fa-table"></i>
+    </article>
+
+    <article routerLink="/tbService">
+      <button >Tabelas Serviço</button>
+      <i class="fa fa-table"></i>
+    </article>
+
+    <article routerLink="/tbAtendimentos">
+      <button >Tabelas Atendimentos</button>
+      <i class="fa fa-table"></i>
+    </article>
+  </div>
 </header>
