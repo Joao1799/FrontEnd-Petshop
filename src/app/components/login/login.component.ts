@@ -19,36 +19,97 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   formUserlogin!: FormGroup;
+  formUserRegistro!: FormGroup;
+  isRegistro = false;
     
-    @Output() liberarAcesso: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() liberarAcesso: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     constructor( private router: Router, private fb: FormBuilder, public serviceMainService: ServiceMainService,private messageService: MessageService){};
   
     ngOnInit() {
-      this.form();
+      this.formLogin();
+      this.formRegistro();
     }
   
-    form(){
+    formLogin(){
       this.formUserlogin = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         senha: ['', [Validators.required]],
       });
     }
   
+    formRegistro(){
+      this.formUserRegistro = this.fb.group({
+        email: ['', [Validators.required, Validators.email]],
+        senha: ['', [Validators.required]],
+        CPF: ['', [Validators.required]],
+        name: ['', [Validators.required]],
+        cargo: ['', [Validators.required]],
+      });
+    }
+  
     loginUserFunc() {
       if (this.formUserlogin.valid) {
-        this.router.navigate(['home']);
-        this.serviceMainService.loginUserFunc(this.formUserlogin.value).subscribe((res) => {
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Login realizado com Sucesso' });
-        console.log(res);
-        this.liberarAcesso.emit(true);
-        });
-      } else {
-        console.log('Formulário inválido',this.formUserlogin.value);
-        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email ou senha inválidos' });
-        this.router.navigate(['home']);
+        this.serviceMainService.loginUserFunc(this.formUserlogin.value).subscribe({
+           next: (res) => {
+            console.log(res.user)
+            // SALVAR TOKEN
+            localStorage.setItem('token', res.token);
+            localStorage.setItem('usuarioLogado', JSON.stringify(res.user));
 
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Login realizado com Sucesso'
+            });
+            this.router.navigate(['home'])
+          },
+          error: (error) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `"Error inesperado!" + ${error.error.msg}`
+            });
+          } 
+        });
+      } 
+      else {
+        this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Email ou senha inválidos' });
       }
     }
+
+    toggleForm() {
+      this.isRegistro = !this.isRegistro;
+    }
+
+  registerUserFunc(): any {
+    if (this.formUserRegistro.valid) {
+      this.serviceMainService.registerUserFunc(this.formUserRegistro.value).subscribe({
+          next: (res) => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Success',
+              detail: 'Conta criada com Sucesso'
+            });
+            this.isRegistro = !this.isRegistro;
+          },
+          error: (error) => {
+            console.log(error);
+            
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `"Error inesperado! " + ${error.error.msg}`
+            });
+          }
+        });
+    } else {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Error',
+        detail: 'Preencha os campos corretamente'
+      });
+    }
+  }
 
 }

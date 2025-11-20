@@ -25,7 +25,11 @@ export class ServiceMainService {
     return this.http.post<any[]>(`${this.apiUrl}/createPets`,infoPet);
   }
 
-  loginUserFunc(infoUserFunc: any){
+  loginUserFunc(infoUserFunc: any):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/login/usersFunc`,infoUserFunc);
+  }
+
+  registerUserFunc(infoUserFunc: any):Observable<any>{
+    return this.http.post<any>(`${this.apiUrl}/registerUsersFunc`,infoUserFunc);
   }
 }

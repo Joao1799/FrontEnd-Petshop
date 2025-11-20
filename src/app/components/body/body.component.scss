@@ -68,6 +68,11 @@
 
       .p-button {
         padding: 0.55rem 1rem;
+        margin-bottom: 8px;
+
+        .pi-camera{
+          overflow: visible;
+        }
         }
 
         .p-dialog-title{
@@ -104,7 +109,6 @@
         font-size: 1rem;
         }
 
-        /* Campos de texto */
         .profile-fields {
         display: flex;
         flex-direction: column;
@@ -123,12 +127,15 @@
         font-weight: 600;
         }
 
-        /* Botões de ação */
         .profile-actions {
         display: flex;
-        justify-content: flex-end;
-        gap: 1rem;
+        justify-content: space-between;
         margin-top: 2rem;
+        
+        div{
+          display: flex;
+          gap: 1rem;
+        }
         }
 
         .action-btn {

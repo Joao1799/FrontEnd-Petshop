@@ -93,7 +93,7 @@
 
     .boxCont{
       background-color: white;
-      padding: 1rem;
+      padding: 0.5rem 1rem;
       box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.11);
       border-radius: 10px;
       display: flex;
@@ -130,12 +130,12 @@
       }
 
       .type{
-        font-size: clamp(1.2rem, 4vw, 1.4rem);
+        font-size: clamp(1.2rem, 4vw, 1.2rem);
         color: #0075eb;
         font-weight: 400;
       }
       .number{
-          font-size: clamp(1.2rem, 4vw, 1.4rem);
+          font-size: clamp(1.2rem, 4vw, 1.2rem);
           color: #0075eb;
           font-weight: 700;
       }
@@ -163,7 +163,7 @@
         justify-content: space-between;
 
         h1 {
-          font-size: clamp(1.4rem, 4vw, 1.8rem);
+          font-size: clamp(1.4rem, 4vw, 1.5rem);
           color: #0075eb;
           font-weight: 400;
         }
@@ -189,22 +189,33 @@
     }
 
     ::ng-deep{
+
+      .p-datatable-wrapper{
+        overflow-x: auto;
+      }
+
+      .p-button.p-button-icon-only {
+          width: 40px;
+          padding: 0.5rem 0 !important;
+      }
+
+        .p-button.p-button-text.p-button-plain:not(:disabled):hover {
+          background: #ffffff;
+          color: #6b7280;
+        }
+          
+        .p-button.p-button-text.p-button-plain:not(:disabled):active {
+          background: #ffffff;
+          color: #6b7280;
+        }
+
       .btnExcluir{
         .p-button:hover {
-          background: red;
+          background: rgba(255, 0, 0, 0.503);
           color: #ffffff;
           border-color: red;
         }
       }
-
-      .p-datatable .p-datatable-thead > tr > th {
-        padding: 0.745rem 1rem;
-      }
-
-      .p-datatable .p-datatable-tbody > tr> td {
-        padding: 0.445rem 1rem;
-      }
-      
     }
 
   }

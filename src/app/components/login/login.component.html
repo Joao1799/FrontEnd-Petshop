@@ -9,15 +9,14 @@
             </div>
 
             <div class="right">
-                <div class="header">
+                <div class="header" [ngClass]="{ 'header-registro': isRegistro, 'header-login': !isRegistro }">
                     <div class="img">
                         <img src="/images/logoLogin.png" alt="">
                     </div>
-                    <h1>Seja Bem Vindo de volta.</h1>  
+                    <h1 *ngIf="!isRegistro">Seja Bem Vindo de volta!</h1>  
                 </div>
-                <div class="forms">
-                    <form [formGroup]="formUserlogin">
-                        <h2>Faça o seu login</h2>
+                <div class="formsRegistro">
+                    <form [formGroup]="formUserlogin" *ngIf="!isRegistro">
                         <article>
                             <label >Email:</label>             
                             <input  placeholder="Informe seu email" pInputText type="text" formControlName="email"  />
@@ -28,7 +27,44 @@
                             <p-password  id="senha" placeholder="Sua senha" [feedback]="false" formControlName="senha"/>
                         </article>
                 
-                        <p-button type="button" class="btnFooter" label="Login" [raised]="true" (click)="loginUserFunc()" />
+                        <footer>
+                            <button pButton type="button"  label="Registro"  severity="secondary"  (click)="toggleForm()"></button>
+                            <button pButton class="btnFooter" label="Login" (click)="loginUserFunc()"></button>
+                        </footer>
+                    </form>
+
+                    
+                    <form [formGroup]="formUserRegistro" *ngIf="isRegistro">
+                        <h2 class="titleRegister">Crie sua conta</h2>
+                        <article>
+                            <label>Email:</label>
+                            <input placeholder="Informe seu email" pInputText type="text" formControlName="email" />
+                        </article>
+
+                        <article>
+                            <label>CPF:</label>
+                            <input placeholder="Informe seu CPF" pInputText type="text" formControlName="CPF" />
+                        </article>
+
+                        <article>
+                            <label for="senha">Senha:</label>
+                            <p-password id="senha" placeholder="Sua senha" [feedback]="false" formControlName="senha" />
+                        </article>
+
+                        <article>
+                            <label>Nome:</label>
+                            <input placeholder="Seu nome" pInputText type="text" formControlName="name" />
+                        </article>
+
+                        <article>
+                            <label>Cargo:</label>
+                            <input placeholder="Seu cargo" pInputText type="text" formControlName="cargo" />
+                        </article>
+
+                        <footer>
+                            <button pButton type="button" label="Voltar ao Login" severity="secondary" (click)="toggleForm()"></button>
+                            <button pButton class="btnFooter" label="Registrar" (click)="registerUserFunc()"></button>
+                        </footer>
                     </form>
                 </div>
             </div>

@@ -69,74 +69,77 @@
 						<input pInputText type="text" [(ngModel)]="campoPesquisa" (input)="filtrarTabela()" placeholder="Pesquise um cliente" />
 					</div>
 				</div>
-				<p-table [value]="listaFiltrada" scrollHeight="65vh" [scrollable]="true" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[1,5, 10, 20]"
-				dataKey="id" >
-					<ng-template pTemplate="header">
-						<tr>
-							<th style="width: 5rem"></th>
-							<th>Nome</th>
-							<th>Email</th>
-							<th>Telefone</th>
-							<th>CPF</th>
-							<th>Remover</th>
-						</tr>
-					</ng-template>
-					<ng-template pTemplate="body" let-users let-expanded="expanded">
-						<tr>
-							<td>
-								<p-button type="button" pButton  pRipple [pRowToggler]="users" [text]="true" [rounded]="true" [plain]="true" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" />
-							</td>
-							<td>
-								<span class="link">
-									{{ users.ownerName }}		
-								</span>
-							</td>
-							<td>{{ users.email }}</td>
-							<td>{{ users.telefone }}</td>
-							<td>{{ users.CPF }}</td> 
-							<td>	
-								<p-button (click)="deleteUser(users.id)" icon="pi pi-trash" class="btnExcluir" />
-							</td>					
-						</tr>
-					</ng-template>
-					<ng-template pTemplate="rowexpansion" let-users>
-						<tr>
-							<td colspan="6">
-								<p-table [value]="users.pets" dataKey="id">
-									<ng-template pTemplate="header">
-										<tr>
-											<th pSortableColumn="customer">Nome</th>
-											<th pSortableColumn="date">Raça</th>
-											<th pSortableColumn="amount">Idade</th>
-											<th pSortableColumn="status">Dono</th>
-											<th pSortableColumn="id">Atendimento</th>
-										</tr>
-									</ng-template>
-									<ng-template pTemplate="body" let-pet>
-										<tr>
-											<td>
-												<span class="link">
-													{{ pet.name }}	
-												</span>
-											</td>
-											<td>{{ pet.breed }}</td>
-											<td>{{ pet.age }}</td>
-											<td>{{ users.ownerName }}</td>
-											<td>
-												{{ users.atendimentos.length > 0 ? users.atendimentos[0].tipo : 'Nenhum atendimento' }}
-											</td>
-										</tr>
-									</ng-template>
-									<ng-template pTemplate="emptymessage">
-										<tr>
-											<td colspan="4">Este usuario não possui Pet cadastrado!</td>
-										</tr>
-									</ng-template>
-								</p-table>
-							</td>
-						</tr>
-					</ng-template>
-				</p-table>
+
+				<div class="tableBodyMain">
+					<p-table [value]="listaFiltrada" scrollHeight="65vh" [scrollable]="true" [paginator]="true" [rows]="10" [rowsPerPageOptions]="[1,5, 10, 20]"
+					dataKey="id" >
+						<ng-template pTemplate="header">
+							<tr>
+								<th style="width: 5rem"></th>
+								<th>Nome</th>
+								<th>Email</th>
+								<th>Telefone</th>
+								<th>CPF</th>
+								<th>Remover</th>
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="body" let-users let-expanded="expanded">
+							<tr>
+								<td>
+									<p-button type="button" pButton  pRipple [pRowToggler]="users" [text]="true" [rounded]="true" [plain]="true" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'" />
+								</td>
+								<td>
+									<span class="link">
+										{{ users.ownerName }}		
+									</span>
+								</td>
+								<td>{{ users.email }}</td>
+								<td>{{ users.telefone }}</td>
+								<td>{{ users.CPF }}</td> 
+								<td>	
+									<p-button (click)="deleteUser(users.id)" icon="pi pi-trash"  severity="secondary" [outlined]="true" class="btnExcluir" />
+								</td>					
+							</tr>
+						</ng-template>
+						<ng-template pTemplate="rowexpansion" let-users>
+							<tr>
+								<td colspan="6">
+									<p-table [value]="users.pets" dataKey="id">
+										<ng-template pTemplate="header">
+											<tr>
+												<th pSortableColumn="customer">Nome</th>
+												<th pSortableColumn="date">Raça</th>
+												<th pSortableColumn="amount">Idade</th>
+												<th pSortableColumn="status">Dono</th>
+												<th pSortableColumn="id">Atendimento</th>
+											</tr>
+										</ng-template>
+										<ng-template pTemplate="body" let-pet>
+											<tr>
+												<td>
+													<span class="link">
+														{{ pet.name }}	
+													</span>
+												</td>
+												<td>{{ pet.breed }}</td>
+												<td>{{ pet.age }}</td>
+												<td>{{ users.ownerName }}</td>
+												<td>
+													{{ users.atendimentos.length > 0 ? users.atendimentos[0].tipo : 'Nenhum atendimento' }}
+												</td>
+											</tr>
+										</ng-template>
+										<ng-template pTemplate="emptymessage">
+											<tr>
+												<td colspan="4">Este usuario não possui Pet cadastrado!</td>
+											</tr>
+										</ng-template>
+									</p-table>
+								</td>
+							</tr>
+						</ng-template>
+					</p-table>
+				</div>
 			</div>
 			<div class="table">
 				<div class="header">

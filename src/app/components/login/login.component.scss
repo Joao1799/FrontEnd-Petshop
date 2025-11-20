@@ -11,8 +11,8 @@
         align-items: center;
         justify-content: center;
         background-color: white;
-        height: 600px;
-        width: 50%;
+        height: 650px;
+        width: 55%;
         -webkit-box-shadow: 0px 0px 6px -1px #000000; 
         box-shadow: 0px 0px 6px -1px #000000;
         border-radius: 10px;
@@ -58,29 +58,44 @@
                 border-radius: 10px;
 
                 .header{
-                    height: 40%;
                     display: flex;
                     flex-direction: column;
-                    justify-content: end;
                     align-items: center;
-                    
-                    .img{
-                        display: flex;
-                        height: 50%;
-                        align-items: center;
-                        img{
-                            width: 200px;
-                        }
-                    }
+                    justify-content: center;
                     h1{
-                        font-size: clamp(1.4rem, 4vw, 2rem);
+                        font-size: clamp(1.4rem, 4vw, 1.7rem);
+                        color: #3B82F6;
                         font-weight: 400;
                         text-align: center;
                     }
                 }
 
-                .forms{
-                    height: 60%;
+                    .header-login {
+                        height: 40%;
+                        .img{
+                            display: flex;
+                            align-items: center;
+                            height: 100%;
+                            img{
+                                width: 180px;
+                            }
+                        }
+                    }
+
+                    .header-registro {
+                        height: 20%;
+                        .img{
+                            display: flex;
+                            align-items: center;
+                            height: 100%;
+                            img{
+                                width: 130px;
+                            }
+                        }
+                    }
+
+
+                .formsRegistro{
                     width: 100%;
                     display: flex;
                     flex-direction: column;
@@ -90,7 +105,6 @@
                         display: flex;
                         justify-content: center;
                         text-align: center;
-
                         font-weight: 400;
                     }
 
@@ -100,7 +114,7 @@
                         gap: 4px;
 
                         label{
-                            font-size: 1rem;
+                            font-size: .8rem;
                             
                         }
                     }
@@ -111,19 +125,33 @@
                         flex-direction: column;
                         gap: 16px;
 
+                        footer{
+                            display: flex;
+                            gap: 25%;
+
+                        .p-button.p-button-secondary{
+                            color: #3B82F6;
+                            background: #ffffff;
+                            border: 1px solid #3B82F6;
+                        }      
+                        }
+
                         .btnFooter{
                             width: 100%;
                             display: flex;
                             justify-content: end;
                         }
                     }
-                    
+                                        
+                }
+
+                .titleRegister{
+                   color: #3B82F6;     
                 }
 
                 .p-inputtext{
                     // padding: 0.75rem 0rem;
                     width: 100%;
-                    
                 }
                 #senha{
                     display: flex;

@@ -7,6 +7,7 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family:'Roboto', Times, serif ,sans-serif;
+    overflow: hidden;
 }
 
 
@@ -33,7 +34,31 @@
     }
 }
 
+.p-button{
+    font-weight: 400;
+    padding: .35rem .45rem;
+}
 
+.p-button .p-button-label {
+    font-weight: 400;
+}
+
+.p-inputtext{
+    font-size: 0.7rem;
+    padding: .65rem .45rem
+}
+
+
+.p-datatable .p-datatable-thead > tr > th {
+    padding: .8rem 1rem;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+}
+
+.p-datatable .p-datatable-tbody > tr > td {
+    padding: 0.445rem 1rem;
+    font-size: 12px !important;
+}
 
 #loading-screen img{
 	width: 15%;

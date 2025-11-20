@@ -4,7 +4,7 @@
             <img src="/images/logo.png"  alt="">
         </div>
         <div class="user">
-            <label for="">João Victor - ADM</label>
+            <label for="">{{name}} - {{cargo}}</label>
             <img class="img" (click)="showDialog()" src="/images/user.png"  alt="">
 
         </div>
@@ -22,7 +22,7 @@
     <div class="profile-photo-container">
       <img class="profile-photo img" src="/images/user.png"  alt="">
 
-      <p-button icon="pi pi-camera" [rounded]="true" [text]="true" [raised]="true" class="btn-cam"/>
+      <button pButton icon="pi pi-camera" [rounded]="true" [text]="true" [raised]="true" class="btn-cam"></button>
     </div>
   </div>
 
@@ -42,8 +42,11 @@
   </div>
 
   <div class="profile-actions">
-    <p-button label="Fechar" severity="secondary" (onClick)="visible = false" class="action-btn"/>
-    <p-button label="Salvar"  class="action-btn"/>
+    <button pButton label="LogOut" severity="secondary" (click)="logout()" class="action-btn"> </button>
+    <div >
+      <button pButton  label="Fechar" severity="secondary" (click)="visible = false" class="action-btn"></button>
+      <button pButton label="Salvar"  class="action-btn"></button>
+    </div>
   </div>
 
 </p-dialog>
