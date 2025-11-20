@@ -61,7 +61,7 @@ export class LoginComponent {
             this.router.navigate(['home'])
           },
           error: (error) => {
-            this.messageService.add({severity: 'error',summary: 'Error',detail: `"Error inesperado!" + ${error.error.msg}`});
+            this.messageService.add({severity: 'error',summary: 'Error',detail: `"Error inesperado!" ${error.error.msg}`});
           } 
         });
       } 
@@ -84,7 +84,7 @@ export class LoginComponent {
           error: (error) => {
             console.log(error);
             
-            this.messageService.add({ severity: 'error', summary: 'Error', detail: `"Error inesperado! " + ${error.error.msg}`});
+            this.messageService.add({ severity: 'error', summary: 'Error', detail: `"Error inesperado! " ${error.error.msg}`});
           }
         });
     } else {
