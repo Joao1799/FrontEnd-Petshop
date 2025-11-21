@@ -11,6 +11,7 @@ import { TbClienteComponent } from './components/body/tabelas/tb-cliente/tb-clie
 import { TbPetComponent } from './components/body/tabelas/tb-pet/tb-pet.component';
 import { TbServiceComponent } from './components/body/tabelas/tb-service/tb-service.component';
 import { TbAtendimentosComponent } from './components/body/tabelas/tb-atendimentos/tb-atendimentos.component';
+import { CargosComponent } from './components/body/gerenciamento/cargos/cargos.component';
 
 
 export const routes: Routes = [
@@ -30,6 +31,7 @@ export const routes: Routes = [
       { path: 'tbPet', component: TbPetComponent,canActivate: [AuthGuard] },
       { path: 'tbService', component: TbServiceComponent,canActivate: [AuthGuard] },
       { path: 'tbAtendimentos', component: TbAtendimentosComponent,canActivate: [AuthGuard] },
+      { path: 'cargo', component: CargosComponent,canActivate: [AuthGuard] },
     ]
   }
 ];

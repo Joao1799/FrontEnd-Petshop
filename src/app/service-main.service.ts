@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,29 +7,48 @@ import { Observable } from 'rxjs';
 })
 export class ServiceMainService {
     private apiUrl = 'http://localhost:3000/api';
+    private token = localStorage.getItem('token');
+    private header = new HttpHeaders({
+      'Authorization': `Bearer ${this.token}`
+    })
+
+    
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
+  getUsers():Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}/allUsers`);
   }
-  deleteUSer(id:any){
-    return this.http.delete<any[]>(`${this.apiUrl}/users/${id}`);
-  }
 
-  postRegisterUser(infoUser: any){
-    return this.http.post<any[]>(`${this.apiUrl}/users`,infoUser)
-  }
-
-  postRegisterPet(infoPet: any) {
-    return this.http.post<any[]>(`${this.apiUrl}/createPets`,infoPet);
-  }
-
-  loginUserFunc(infoUserFunc: any):Observable<any>{
+  postLoginUserFunc(infoUserFunc: any):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/login/usersFunc`,infoUserFunc);
   }
 
-  registerUserFunc(infoUserFunc: any):Observable<any>{
+  postRegisterUserFunc(infoUserFunc: any):Observable<any>{
     return this.http.post<any>(`${this.apiUrl}/registerUsersFunc`,infoUserFunc);
+  }
+
+  getInfoUser(idUser:any):Observable<any>{
+   return this.http.get<any>(`${this.apiUrl}/user/${idUser}`,{headers:this.header}) 
+  }
+
+  putEditInfoUser(body:any, idUser:any):Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/usersFunc/${idUser}`,body)
+  }
+
+  deleteUSer(id:any):Observable<any>{
+    return this.http.delete<any[]>(`${this.apiUrl}/users/${id}`);
+  }
+
+  getListCargos():Observable<any>{
+    return this.http.get<any[]>(`${this.apiUrl}/listCargo`)
+  }
+
+  postRegisterUserClient(infoUser: any):Observable<any>{
+    return this.http.post<any[]>(`${this.apiUrl}/users`,infoUser)
+  }
+
+  postRegisterPet(infoPet: any):Observable<any> {
+    return this.http.post<any[]>(`${this.apiUrl}/createPets`,infoPet);
   }
 }

@@ -50,7 +50,7 @@ export class LoginComponent {
   
     loginUserFunc() {
       if (this.formUserlogin.valid) {
-        this.serviceMainService.loginUserFunc(this.formUserlogin.value).subscribe({
+        this.serviceMainService.postLoginUserFunc(this.formUserlogin.value).subscribe({
            next: (res) => {
             console.log(res.user)
             // SALVA o TOKEN
@@ -76,7 +76,7 @@ export class LoginComponent {
 
   registerUserFunc(): any {
     if (this.formUserRegistro.valid) {
-      this.serviceMainService.registerUserFunc(this.formUserRegistro.value).subscribe({
+      this.serviceMainService.postRegisterUserFunc(this.formUserRegistro.value).subscribe({
           next: (res) => {
             this.messageService.add({ severity: 'success', summary: 'Success',detail: 'Conta criada com Sucesso'});
             this.isRegistro = !this.isRegistro;

@@ -28,6 +28,8 @@
 
   <div class="profile-fields">
     <div class="field">
+      <p-dropdown [options]="listaCargos" [(ngModel)]="cargo" optionLabel="nome" placeholder="Cargos"></p-dropdown>
+
       <label for="name">Nome</label>
       <input pInputText id="name" [(ngModel)]="name" placeholder="Seu nome" />
     </div>
@@ -45,8 +47,10 @@
     <button pButton label="LogOut" severity="secondary"  [outlined]="true" (click)="logout()" class="btnLogout"> </button>
     <div >
       <button pButton  label="Fechar" severity="secondary"  (click)="visible = false" class="action-btn"></button>
-      <button pButton label="Salvar"  class="action-btn"></button>
+      <button pButton label="Salvar" (click)="editarInfosUserLogado()"  class="action-btn"></button>
     </div>
   </div>
 
 </p-dialog>
+
+<p-toast position="top-right" [baseZIndex]="99919"/>

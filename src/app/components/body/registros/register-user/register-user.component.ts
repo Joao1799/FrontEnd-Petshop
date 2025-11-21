@@ -50,7 +50,7 @@ export class RegisterUserComponent {
   registerUser() {
     console.log(this.formUserRegister.value);
     if (this.formUserRegister.valid) {
-      this.serviceMainService.postRegisterUser(this.formUserRegister.value).subscribe((req) => {
+      this.serviceMainService.postRegisterUserClient(this.formUserRegister.value).subscribe((req) => {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Cliente cadastrado' });
       this.formUserRegister.reset();
       });
