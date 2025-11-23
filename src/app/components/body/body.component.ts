@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth.service';
 import { MessageService } from 'primeng/api';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, Validators } from '@angular/forms';
 import { ServiceMainService } from '../../service-main.service';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
@@ -22,106 +22,86 @@ import { DropdownModule } from 'primeng/dropdown';
 })
 export class BodyComponent {
     visible: boolean = false;
-    isBrowser: boolean = false;
-    infosUsuarioLogado!: any | null;
-    cargo!: string | null;
+    cargo: any = null;
     name!: string | null;
     email!: any;
     idUser!: any;
     listaCargos!: any[];
-
+    cargoNome: any;
+    formEdit: any;
     constructor(
         private router: Router,
         private auth: AuthService, 
         private messageService: MessageService,
-        private service: ServiceMainService
+        private service: ServiceMainService,
+        private fb: FormBuilder
     ){};
     
     ngOnInit() {
-        this.isBrowser = typeof window !== 'undefined';
-        this.setInfosUserStorage();
-        this.getInfoUser();
+        const user = this.getInfoUser();
+        if (user) {
+            this.setInfosUserStorage(user);
+        }
     }
 
     getInfoUser() {
-    const data = localStorage.getItem('usuarioLogado');
-    return data ? JSON.parse(data) : null;
+        const data = localStorage.getItem('usuarioLogado');
+        const user = data ? JSON.parse(data) : null;
+        return user;
     }
 
-    setInfosUserStorage() {     
-    this.infosUsuarioLogado = this.getInfoUser();
-    console.log(this.infosUsuarioLogado.cargo);
-    
-    this.cargo = this.infosUsuarioLogado.cargo.nome
-    this.name = this.infosUsuarioLogado.name
-    this.email = this.infosUsuarioLogado.email
-    this.idUser = this.infosUsuarioLogado.id
+    showDialog() {
+        this.visible = true;
+        const user = this.getInfoUser();
+        this.setInfosUserStorage(user);
+        this.getInfoUserLogado();
     }
+
+    setInfosUserStorage(user:any) {     
+        console.log(user.cargo);
+        this.cargoNome = user.cargo.nome
+        this.cargo = user.cargo
+        this.name = user.name
+        this.email =user.email
+        this.idUser = user.id
+    }
+
+    
 
     getInfoUserLogado(){
         this.service.getInfoUser(this.idUser).subscribe({
             next:(res) =>{
-                console.log(res);
-                this.messageService.add({
-                severity: 'success',
-                summary: 'Logout',
-                detail: 'Sessão encerrada com sucesso'
-                });                
+                console.log(res);           
             },
             error:(error)=>{
                 this.messageService.add({
                 severity: 'Error',
                 summary: 'Erro',
-                detail:`"Error inesperado!" ${error.error.msg}`
+                detail:`${error.error.msg}`
                 });                                
             }
         })
     }
 
-    editarInfosUserLogado(){
-        console.log(this.idUser);
-        
-        let body ={
-            name: this.name,
-            email: this.email,
-            cargo: this.cargo
-        }
-        this.service.putEditInfoUser(body,this.idUser).subscribe({
-            next:(res) =>{
-                console.log(res);
-                
-                localStorage.setItem('usuarioLogado', JSON.stringify(res.data));
+    formEditUserInfos(){
+        this.formEdit = this.fb.group({
+            name: [this.name,],
+            email: [this.email, Validators.email],
+        });
 
-                console.log(localStorage.getItem('usuarioLogado'));
-                
-                this.getInfoUser();
-                this.messageService.add({
-                severity: 'success',
-                summary: 'Logout',
-                detail: 'Sessão encerrada com sucesso'
-                });                
-            },
-            error:(error)=>{
-                this.messageService.add({
-                severity: 'Error',
-                summary: 'Erro',
-                detail:`"Error inesperado!" ${error.error.msg}`
-                });                                
-            }
-        })
     }
 
-
-    listCargos(){
-        this.service.getListCargos().subscribe({
+    editarInfosUserLogado(){        
+        this.service.putEditInfoUser(this.formEdit,this.idUser).subscribe({
             next:(res) =>{
-                this.listaCargos = res                         
+                console.log(res);
+                localStorage.setItem('usuarioLogado', JSON.stringify(res.data));            
             },
             error:(error)=>{
                 this.messageService.add({
                 severity: 'Error',
                 summary: 'Erro',
-                detail:`"Error inesperado!" ${error.error.msg}`
+                detail:`${error.error.msg}`
                 });                                
             }
         })
@@ -139,11 +119,4 @@ export class BodyComponent {
     });
   }
 
-    showDialog() {
-        if (this.isBrowser) { 
-            this.visible = true;
-            this.getInfoUserLogado();
-            this.listCargos();
-        }
-    }
 }

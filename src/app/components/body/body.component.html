@@ -4,7 +4,7 @@
             <img src="/images/logo.png"  alt="">
         </div>
         <div class="user">
-            <label for="">{{name}} - {{cargo}}</label>
+            <label for="">{{name}} - {{cargoNome}}</label>
             <img class="img" (click)="showDialog()" src="/images/user.png"  alt="">
 
         </div>
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<p-dialog *ngIf="isBrowser" header="Editar Perfil" [modal]="true" [(visible)]="visible" [style]="{ width: '28rem' }" [baseZIndex]="10000" class="profile-dialog">
+<p-dialog header="Editar Perfil" [modal]="true" [(visible)]="visible" [style]="{ width: '28rem' }" [baseZIndex]="10000" class="profile-dialog">
     <div class="profile-header">
     <div class="profile-photo-container">
       <img class="profile-photo img" src="/images/user.png"  alt="">
@@ -28,8 +28,6 @@
 
   <div class="profile-fields">
     <div class="field">
-      <p-dropdown [options]="listaCargos" [(ngModel)]="cargo" optionLabel="nome" placeholder="Cargos"></p-dropdown>
-
       <label for="name">Nome</label>
       <input pInputText id="name" [(ngModel)]="name" placeholder="Seu nome" />
     </div>
@@ -39,7 +37,7 @@
     </div>
     <div class="field">
       <label for="role">Cargo</label>
-      <input pInputText id="cargo" [(ngModel)]="cargo" placeholder="Seu cargo" />
+      <input pInputText id="cargo" disabled [(ngModel)]="cargoNome" placeholder="Seu cargo" />
     </div>
   </div>
 
@@ -47,10 +45,10 @@
     <button pButton label="LogOut" severity="secondary"  [outlined]="true" (click)="logout()" class="btnLogout"> </button>
     <div >
       <button pButton  label="Fechar" severity="secondary"  (click)="visible = false" class="action-btn"></button>
-      <button pButton label="Salvar" (click)="editarInfosUserLogado()"  class="action-btn"></button>
+      <button pButton label="Salvar"  (click)="editarInfosUserLogado()"  class="action-btn"></button>
     </div>
   </div>
 
 </p-dialog>
 
-<p-toast position="top-right" [baseZIndex]="99919"/>
+<p-toast position="bottom-right" [baseZIndex]="99919"/>

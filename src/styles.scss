@@ -56,6 +56,10 @@
     box-shadow: none; 
 }
 
+  .p-button:focus {
+    box-shadow: none;
+  }
+
 
 .p-datatable .p-datatable-thead > tr > th {
     padding: .8rem 1rem;

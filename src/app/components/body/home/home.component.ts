@@ -31,8 +31,8 @@ import { ChartModule } from 'primeng/chart';
   ],
 })
 export class HomeComponent {
-  users: any[] = []; // Inicializa como array vazio
-  listaFiltrada: any[] = []; // Lista que será usada na tabela
+  users: any[] = []; 
+  listaFiltrada: any[] = [];
   pets: any;
   items: MenuItem[] | undefined;
   campoPesquisa: string = '';
@@ -137,7 +137,6 @@ export class HomeComponent {
     this.serviceMainService.getUsers().subscribe((users: any[]) => {
       this.users = users;
       this.listaFiltrada = users;
-      console.log(this.users);
     });
   }
 
