@@ -15,23 +15,23 @@ import { CargosComponent } from './components/body/gerenciamento/cargos/cargos.c
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
+{ 
+  path: '',
+  component: BodyComponent,
+  canActivate: [AuthGuard],
+  children: [
+    { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+    { path: 'registrarUsuario', component: RegisterUserComponent, canActivate: [AuthGuard] },
+    { path: 'registrarPet', component: RegisterPetComponent, canActivate: [AuthGuard] },
+    { path: 'calendarService', component: CalendarServiceComponent, canActivate: [AuthGuard] },
+    { path: 'registrarServico', component: RegisterServiceComponent, canActivate: [AuthGuard] },
+    { path: 'tbCliente', component: TbClienteComponent, canActivate: [AuthGuard] },
+    { path: 'tbPet', component: TbPetComponent, canActivate: [AuthGuard] },
+    { path: 'tbService', component: TbServiceComponent, canActivate: [AuthGuard] },
+    { path: 'tbAtendimentos', component: TbAtendimentosComponent, canActivate: [AuthGuard] },
+    { path: 'cargo', component: CargosComponent, canActivate: [AuthGuard] },
+  ]
+},
 
- // rotas estão aninhadas dentro do BodyComponent.
-  { 
-    path: '',component: BodyComponent,canActivate: [AuthGuard], 
-    children: [
-      { path: 'home', component: HomeComponent,canActivate: [AuthGuard] },
-      { path: 'registrarUsuario', component: RegisterUserComponent,canActivate: [AuthGuard] },
-      { path: 'registrarPet', component: RegisterPetComponent,canActivate: [AuthGuard] },
-      { path: 'calendarService', component: CalendarServiceComponent,canActivate: [AuthGuard] },
-      { path: 'registrarServico', component: RegisterServiceComponent,canActivate: [AuthGuard] },
-      { path: 'tbCliente', component: TbClienteComponent,canActivate: [AuthGuard] },
-      { path: 'tbPet', component: TbPetComponent,canActivate: [AuthGuard] },
-      { path: 'tbService', component: TbServiceComponent,canActivate: [AuthGuard] },
-      { path: 'tbAtendimentos', component: TbAtendimentosComponent,canActivate: [AuthGuard] },
-      { path: 'cargo', component: CargosComponent,canActivate: [AuthGuard] },
-    ]
-  }
+{ path: 'login', component: LoginComponent },
 ];

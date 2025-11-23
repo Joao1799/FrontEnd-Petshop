@@ -58,7 +58,7 @@ export class LoginComponent {
             localStorage.setItem('usuarioLogado', JSON.stringify(res.user));
 
             this.messageService.add({severity: 'success',summary: 'Success',detail: 'Login realizado com Sucesso'});
-            this.router.navigate(['home'])
+            this.router.navigate(['/home'])
           },
           error: (error) => {
             this.messageService.add({severity: 'error',summary: 'Error',detail: `${error.error.msg}`});
