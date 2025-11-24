@@ -18,26 +18,24 @@ export const authInterceptor: HttpInterceptorFn = (req, next) => {
 
   return next(req).pipe(
     catchError((error) => {
-
       if (error.status === 401) {
-        console.warn("Token inválido ou expirado!");
         messageService.add({
           severity: 'error',
           summary: 'Erro de Autenticação',
           detail:'Token expirado, faça login novamente.'
         });
         localStorage.removeItem('token');
+        localStorage.removeItem('usuarioLogado');
         router.navigate(['/login']);
       }
       if (error.status === 403) {
-        console.log(error.error.msg)
-        console.warn("Token inválido ou expirado!");
         messageService.add({
           severity: 'error',
           summary: 'Erro de Autenticação',
           detail:error.error.msg || 'Token inválido ou expirado.'
         });
         localStorage.removeItem('token');
+        localStorage.removeItem('usuarioLogado');
         router.navigate(['/login']);
       }
 

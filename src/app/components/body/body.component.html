@@ -27,19 +27,21 @@
   </div>
 
   <div class="profile-fields">
-    <div class="field">
-      <label for="name">Nome</label>
-      <input pInputText id="name" [(ngModel)]="name" placeholder="Seu nome" />
-    </div>
-    <div class="field">
-      <label for="email">Email</label>
-      <input pInputText id="email" [(ngModel)]="email" placeholder="Seu email" />
-    </div>
-    <div class="field">
-      <label for="role">Cargo</label>
-      <input pInputText id="cargo" disabled [(ngModel)]="cargoNome" placeholder="Seu cargo" />
-    </div>
-  </div>
+    <form [formGroup]="formEdit">
+          <div class="field">
+            <label for="name">Nome</label>
+            <input pInputText id="name" formControlName="name" placeholder="Seu nome" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input pInputText id="email" formControlName="email" placeholder="Seu email" />
+          </div>
+          <div class="field">
+            <label for="role">Cargo</label>
+            <input pInputText id="cargo" formControlName="cargo" placeholder="Seu cargo" />
+          </div>
+    </form>
+   </div>
 
   <div class="profile-actions">
     <button pButton label="LogOut" severity="secondary"  [outlined]="true" (click)="logout()" class="btnLogout"> </button>
@@ -51,4 +53,4 @@
 
 </p-dialog>
 
-<p-toast position="bottom-right" [baseZIndex]="99919"/>
+<!-- <p-toast position="bottom-right" [baseZIndex]="99919"/> -->

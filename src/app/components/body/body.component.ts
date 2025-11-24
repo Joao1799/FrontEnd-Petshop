@@ -7,7 +7,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '../../auth.service';
 import { MessageService } from 'primeng/api';
-import { FormBuilder, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, Validators, ReactiveFormsModule } from '@angular/forms';
 import { ServiceMainService } from '../../service-main.service';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
@@ -18,7 +18,7 @@ import { DropdownModule } from 'primeng/dropdown';
     standalone: true,
     templateUrl: './body.component.html',
     styleUrl: './body.component.scss',
-    imports: [CommonModule,ToastModule,ButtonModule,InputTextModule,RouterOutlet, menuLateralrComponent,DialogModule,FormsModule,DropdownModule]
+    imports: [CommonModule, ToastModule, ButtonModule, InputTextModule, RouterOutlet, menuLateralrComponent, DialogModule, FormsModule, DropdownModule, ReactiveFormsModule]
 })
 export class BodyComponent {
     visible: boolean = false;
@@ -28,7 +28,7 @@ export class BodyComponent {
     idUser!: any;
     listaCargos!: any[];
     cargoNome: any;
-    formEdit: any;
+    formEdit!: FormGroup;
     constructor(
         private router: Router,
         private auth: AuthService, 
@@ -42,6 +42,7 @@ export class BodyComponent {
         if (user) {
             this.setInfosUserStorage(user);
         }
+        this.formEditUserInfos();
     }
 
     getInfoUser() {
@@ -87,15 +88,23 @@ export class BodyComponent {
         this.formEdit = this.fb.group({
             name: [this.name,],
             email: [this.email, Validators.email],
+            cargo: [this.cargoNome],
         });
-
     }
 
-    editarInfosUserLogado(){        
-        this.service.putEditInfoUser(this.formEdit,this.idUser).subscribe({
+    editarInfosUserLogado(){  
+        console.log(this.formEdit.value);
+              
+        this.service.putEditInfoUser(this.formEdit.value,this.idUser).subscribe({
             next:(res) =>{
                 console.log(res);
-                localStorage.setItem('usuarioLogado', JSON.stringify(res.data));            
+                localStorage.setItem('usuarioLogado', JSON.stringify(res.data)); 
+                this.setInfosUserStorage(res.data) 
+                    this.messageService.add({
+      severity: 'success',
+      summary: 'Logout',
+      detail: 'Sessão encerrada com sucesso'
+    });          
             },
             error:(error)=>{
                 this.messageService.add({

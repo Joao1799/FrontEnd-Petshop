@@ -9,11 +9,13 @@
   background-color: #0075eb;
   max-height: 10vh;
   box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.31);
-  z-index: 11111111;
+  z-index: 2;
   padding: 0px 2%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
+
   .logo {
     img {
       width: 100px;
