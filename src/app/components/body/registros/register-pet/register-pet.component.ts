@@ -39,7 +39,7 @@ export class RegisterPetComponent {
   }
 
   getUsers(){
-    this.serviceMain.getUsers().subscribe((users =>{
+    this.serviceMain.getUsersClient().subscribe((users =>{
       console.log(users);
       
       this.usuarios = users;

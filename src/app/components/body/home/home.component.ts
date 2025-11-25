@@ -134,7 +134,7 @@ export class HomeComponent {
   }
 
   getUsers() {
-    this.serviceMainService.getUsers().subscribe((users: any[]) => {
+    this.serviceMainService.getUsersClient().subscribe((users: any[]) => {
       this.users = users;
       this.listaFiltrada = users;
     });

@@ -49,7 +49,7 @@ export class RegisterServiceComponent {
   }
 
   getUsers(){
-    this.service.getUsers().subscribe((data=>{
+    this.service.getUsersClient().subscribe((data=>{
       this.usuarios = data;
       this.usuariosPet = this.usuarios.filter(userPet => userPet.pets && userPet.pets.length > 0);
     }))

@@ -1,5 +1,16 @@
 <section class="main-container">
     <div class="body-main">
-        
+        <div class="table">
+            <div class="header">
+                <div class="title">
+                    <h1>Tabela Atendimentos</h1>
+                </div>
+                <div class="p-input-icon-right">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" [(ngModel)]="campoPesquisa" (input)="filtrarTabela()" placeholder="Pesquise um atendimento" />
+                </div>
+            </div>
+            <app-tb-base [valorTabela]="listaFiltrada"></app-tb-base>
+        </div>
     </div>
 </section>

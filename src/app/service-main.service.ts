@@ -44,10 +44,9 @@ export class ServiceMainService {
     return this.http.put<any>(`${this.apiUrl}/usersFunc/${idUser}`,body,{headers: this.getAuthHeaders()})
   }
 
-  getUsers():Observable<any> {
-    return this.http.get<any[]>(`${this.apiUrl}/allUsers`,{headers: this.getAuthHeaders()});
+  getUsersFunc():Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/usersFunc`,{headers: this.getAuthHeaders()});
   }
-
 
   deleteUSer(id:any):Observable<any>{
     return this.http.delete<any[]>(`${this.apiUrl}/users/${id}`,{headers: this.getAuthHeaders()});
@@ -64,4 +63,20 @@ export class ServiceMainService {
   postRegisterPet(infoPet: any):Observable<any> {
     return this.http.post<any[]>(`${this.apiUrl}/createPets`,infoPet,{headers: this.getAuthHeaders()});
   }
+
+  //Tabelas
+
+  getUsersClient():Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/allUsers`,{headers: this.getAuthHeaders()});
+  }
+
+  getAllPets():Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/allPets`,{headers: this.getAuthHeaders()});
+  }
+
+  getallAtendimento():Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}/allAtendimento`,{headers: this.getAuthHeaders()});
+  }
+
+
 }
