@@ -4,9 +4,7 @@
   justify-content: space-between;
 
   h1 {
-    font-size: clamp(1.4rem, 4vw, 1.5rem);
     color: #0075eb;
-    font-weight: 400;
   }
 
   .p-input-icon-right i {
@@ -51,7 +49,7 @@
     }
 
     ::ng-deep {
-      .p-inputwrapper, .p-autocomplete-input {
+      .p-inputwrapper {
           width: auto !important;
       }
 

@@ -1,9 +1,14 @@
 <div class="container">
     <div class="banner">
         <div class="logo">
-            <img src="/images/logo.png"  alt="">
+            <img src="/images/dogNoBg.png"  alt="">
         </div>
         <div class="user">
+            <button pButton class="theme-toggle-btn"(click)="alternarTema()" type="button">
+                <i class="pi"
+                  [ngClass]="temaAtual === 'dark' ? 'pi-sun sun' : 'pi-moon moon'">
+                </i>
+            </button>
             <label for="">{{name}} - {{cargoNome}}</label>
             <img class="img" (click)="showDialog()" src="/images/user.png"  alt="">
 

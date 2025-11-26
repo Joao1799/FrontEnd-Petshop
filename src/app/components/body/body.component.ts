@@ -11,6 +11,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, Validators, ReactiveF
 import { ServiceMainService } from '../../service-main.service';
 import { ToastModule } from 'primeng/toast';
 import { DropdownModule } from 'primeng/dropdown';
+import { ThemeService } from '../../../assets/theme.service';
 
 
 @Component({
@@ -34,7 +35,8 @@ export class BodyComponent {
         private auth: AuthService, 
         private messageService: MessageService,
         private service: ServiceMainService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private themeService: ThemeService
     ){};
     
     ngOnInit() {
@@ -126,6 +128,15 @@ export class BodyComponent {
       summary: 'Logout',
       detail: 'Sessão encerrada com sucesso'
     });
+  }
+
+
+    alternarTema() {
+    this.themeService.alternarTema();
+    }
+
+    get temaAtual() {
+    return this.themeService.temaAtual();
   }
 
 }

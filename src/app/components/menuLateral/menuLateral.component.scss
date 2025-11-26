@@ -5,6 +5,7 @@
     flex-direction: column;
     gap: 8px;
     padding: 16px 0px;
+    background: var(--cor-menuLateral)
 }
 article {
     display: flex;
@@ -21,7 +22,7 @@ article button {
     text-align: left;        
     background: none;
     border: none;
-    color: #0075eb;
+    color: var(--cor-primaria);
     font-size: 12px;
     padding: 0;
 }
@@ -29,12 +30,12 @@ article button {
 article i {
     font-size: 14px;
     margin-left: 8px;
-    color: #0075eb;
+    color: var(--cor-primaria);
     min-width: 20px;         
 }
 
 article:hover {
-    background-color: #0075eb;
+    background-color: var(--cor-primaria);
     cursor: pointer;
 }
 
@@ -47,7 +48,7 @@ article:hover i {
 
 .menu button.group-title {
     font-weight: 700;
-    color: #0076ebe6;
+    color: var(--cor-primaria);;
     cursor: default;
     background-color: #0076eb25;
     pointer-events: none; 

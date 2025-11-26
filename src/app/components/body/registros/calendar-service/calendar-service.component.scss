@@ -1,6 +1,8 @@
   .body-main {
     height: 100%;
   }
+
+  
   
 ::ng-deep .fc {
   height: 100% !important;
@@ -21,10 +23,9 @@
 }
 
 ::ng-deep{
-/* Altera a cor de fundo e o texto dos botões */
 .fc-button {
-  background-color: #007bff !important; /* Cor azul */
-  color: white !important; /* Texto branco */
+  background-color: #007bff !important; 
+  color: white !important;
   border: none !important;
   padding: 8px 12px !important;
   font-weight: bold;
@@ -32,30 +33,39 @@
   transition: 0.3s;
 }
 
-/* Mudar cor ao passar o mouse */
+.fc-theme-standard td, .fc-theme-standard th {
+  color: var(--cor-primaria);
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background-color: #007bff48;
+}
+
+.fc .fc-toolbar-title{
+  color: var(--cor-primaria);
+}
+
 .fc-button:hover {
   background-color: #0056b3 !important;
 }
 
-/* Mudar cor do botão quando estiver ativo */
 .fc-button-active {
   background-color: #004080 !important;
 }
 
-/* Personalizar os botões "Hoje", "Mês", "Semana", "Dia" */
 .fc-today-button {
-  background-color: #007bff !important; /* Verde */
+  background-color: #007bff !important;
 }
 
 .fc-dayGridMonth-button {
-  background-color: #007bff !important; /* Azul claro */
+  background-color: #007bff !important;
 }
 
 .fc-dayGridWeek-button {
-  background-color: #007bff !important; /* Amarelo */
+  background-color: #007bff !important;
 }
 
 .fc-dayGridDay-button {
-  background-color: #007bff !important; /* Vermelho */
+  background-color: #007bff !important;
 }
 }

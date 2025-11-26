@@ -10,7 +10,6 @@
         width: 100%;
         display: flex;
         justify-content: left;
-        font-size: 2rem;
         padding-bottom: 10px;
         color: #0075eb;
       }
@@ -71,19 +70,21 @@
       padding: 0.745rem;
       gap: 10px;
       display: flex;
+      background: var(--cor-fundo);
       .p-button{
         padding: 0.345rem;
         gap: 6px;
         .p-button-label {
           transition-duration: 0.2s;
           font-weight: 400;
-      }
+        }
       }
     }
-
+    
     .p-fileupload .p-fileupload-content {
       padding: 1rem .7rem;
       max-height: 15vh;
       overflow-y: auto;
+      background: var(--cor-fundo);
     }
 }
