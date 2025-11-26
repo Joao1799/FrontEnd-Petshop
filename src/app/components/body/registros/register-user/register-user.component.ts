@@ -7,7 +7,6 @@ import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
-import { menuLateralrComponent } from '../../../menuLateral/menuLateral.component';
 import { ServiceMainService } from '../../../../service-main.service';
 
 @Component({
@@ -15,7 +14,7 @@ import { ServiceMainService } from '../../../../service-main.service';
     standalone: true,
     templateUrl: './register-user.component.html',
     styleUrl: './register-user.component.scss',
-    imports: [ButtonModule,ToastModule, MenubarModule, CommonModule, ReactiveFormsModule, InputTextModule, MultiSelectModule, menuLateralrComponent]
+    imports: [ButtonModule,ToastModule, MenubarModule, CommonModule, ReactiveFormsModule, InputTextModule, MultiSelectModule]
 })
 export class RegisterUserComponent {
   items:  MenuItem[] | undefined;
@@ -39,7 +38,13 @@ export class RegisterUserComponent {
       ownerName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       telefone: ['', [Validators.required]],
-      CPF: ['', [Validators.required]]
+      CPF: ['', [Validators.required]],
+      idade: ['', [Validators.required]],
+      CEP: ['', [Validators.required]],
+      endereco: ['', [Validators.required]],
+      bairro: ['', [Validators.required]],
+      estado: ['', [Validators.required]],
+      complemento: ['', [Validators.required]]
     });
   }
 

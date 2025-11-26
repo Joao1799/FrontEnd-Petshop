@@ -68,26 +68,28 @@
   }
 
 ::ng-deep{
-  .p-inputwrapper,.p-autocomplete-input{
-      width: 100%;
+  .p-datepicker {
+      transform: scale(0.8);     
+      transform-origin: top left;
   }
-  .p-fileupload .p-fileupload-buttonbar {
-    padding: 0.745rem;
-    gap: 10px;
-    display: flex;
-    .p-button{
-      padding: 0.345rem;
-      gap: 6px;
-      .p-button-label {
-        transition-duration: 0.2s;
-        font-weight: 400;
-    }
+
+  .p-datepicker table {
+      font-size: 0.8rem;
+  }
+
+  .p-datepicker-header {
+      font-size: 0.9rem;
+  }
+
+  .p-datepicker-title {
+      font-size: 0.95rem;
+
+    .p-inputwrapper,.p-autocomplete-input{
+        width: 100%;
     }
   }
 
-  .p-fileupload .p-fileupload-content {
-    padding: 1rem .7rem;
-    max-height: 15vh;
-    overflow-y: auto;
+  .p-inputwrapper,.p-autocomplete-input{
+      width: 100%;
   }
 }

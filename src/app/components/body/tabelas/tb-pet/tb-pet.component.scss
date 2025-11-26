@@ -51,6 +51,10 @@
     }
 
     ::ng-deep {
+      .p-inputwrapper, .p-autocomplete-input {
+          width: auto !important;
+      }
+
       .p-datatable-wrapper {
         overflow-x: auto;
       }

@@ -78,5 +78,10 @@ export class ServiceMainService {
     return this.http.get<any[]>(`${this.apiUrl}/allAtendimento`,{headers: this.getAuthHeaders()});
   }
 
+  //
+  postCreateAtendimentos(body: any):Observable<any> {
+    return this.http.post<any[]>(`${this.apiUrl}/createAtendimentos`,body,{headers: this.getAuthHeaders()});
+  }
+
 
 }

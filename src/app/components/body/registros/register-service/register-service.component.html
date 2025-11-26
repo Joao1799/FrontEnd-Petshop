@@ -6,35 +6,69 @@
                     <h1>Cadastro de Serviço</h1>
                     <img src="images/iconservice.png" alt="">
                 </header>
+
+                <article>
+                    <label>Responsável do PET:</label>
+                        <p-autoComplete 
+                            [suggestions]="ownersFiltrados"
+                            (completeMethod)="filterOwners($event)"
+                            field="ownerName"
+                            emptyFilterMessage="Não encontrado"
+                            emptyMessage="Não encontrado"
+                            [forceSelection]="true"
+                            (onSelect)="onOwnerSelect($event)"
+                            (onClear)="onOwnerClear()"
+                            [dropdown]="true"
+                            [showClear]="true"
+                            >
+                        </p-autoComplete>
+                </article>
+
+                <article *ngIf="petsDoOwnerSelecionado.length > 0">
+                    <label>Pet:</label>
+                        <p-autoComplete 
+                            [suggestions]="petsFiltrados"
+                            (completeMethod)="filterPets($event)"
+                            emptyFilterMessage="Não encontrado"
+                            emptyMessage="Não encontrado"
+                            field="name"
+                            [forceSelection]="true"
+                            [dropdown]="true"
+                            (onSelect)="onPetSelect($event)"
+                            >
+                        </p-autoComplete>
+                </article>
+
                 <article>
                     <label>Motivo do Atendimento:</label>
                     <input type="text" pInputText formControlName="motivo" />
                 </article>
-
-                <article>
-                    <label>Data e hora do atendimento:</label>
-                    <input type="text" pInputText formControlName="dataHora" />
-                </article>
-
-                <article>
-                    <label>Responsável:</label>
-                    <input type="text" pInputText formControlName="responsavel" />
-                </article>
-
+           
                 <article>
                     <label>Veterinário ou funcionário responsável:</label>
-                    <input type="text" pInputText formControlName="veterinario" />
+                        <p-autoComplete 
+                            [suggestions]="usuariosFuncFiltrados"
+                            (completeMethod)="filterUserFunc($event)"
+                            field="name"
+                            emptyFilterMessage="Não encontrado"
+                            emptyMessage="Não encontrado"
+                            [forceSelection]="true"
+                            (onSelect)="onUserFuncSelect($event)"
+                            [dropdown]="true"
+                            [showClear]="true"
+                            >
+                        </p-autoComplete>
                 </article>
-
                 <article>
                     <label>Observações gerais:</label>
                     <input type="text" pInputText formControlName="observacoes" />
                 </article>
 
                 <article>
-                    <label>Status do atendimento:</label>
-                    <input type="text" pInputText formControlName="status" />
-                </article>
+                    <label>Data do atendimento:</label>
+                    <!-- <input type="text" pInputText formControlName="dataHora" /> -->
+                    <p-calendar formControlName="dataHora" dateFormat="dd/mm/yy" [showIcon]="true" inputId="buttondisplay"/>
+                </article>  
 
 
                 <div class="card flex justify-content-center">
