@@ -10,7 +10,7 @@
                     <input pInputText type="text" [(ngModel)]="campoPesquisa" (input)="filtrarTabela()" placeholder="Pesquise um pet" />
                 </div>
             </div>
-            <app-tb-base [valorTabela]="listaFiltrada"></app-tb-base>
+            <app-tb-base [valorTabela]="listaFiltrada" [colunas]="colunasPet"></app-tb-base>
         </div>
     </div>
 </section>

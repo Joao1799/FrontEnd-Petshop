@@ -1,33 +1,24 @@
-<p-table 
-    [value]="valorTabela" 
+<p-table [value]="valorTabela"
     scrollHeight="65vh" 
     [scrollable]="true"
     [paginator]="true" 
     [rows]="10"
-    [rowsPerPageOptions]="[5, 10, 20]"
->
-    <ng-template pTemplate="header">
-        <tr>
-            <th *ngFor="let col of colunas">
-                {{ col }}
-            </th>
-        </tr>
-    </ng-template>
+    [rowsPerPageOptions]="[5, 10, 20]">
 
-    <ng-template pTemplate="body" let-row>
-        <tr>
-            <td *ngFor="let col of colunas">
-                {{ row[col]  || '-'}}
-            </td>
-        </tr>
-    </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of colunas">
+        {{ col.coluna }}
+      </th>
+    </tr>
+  </ng-template>
 
-    <ng-template pTemplate="emptymessage">
-        <tr>
-            <td [attr.colspan]="colunas.length" class="text-center">
-                Nenhum dado encontrado!
-            </td>
-        </tr>
-    </ng-template>
+  <ng-template pTemplate="body" let-indexLinha>
+    <tr>
+      <td *ngFor="let col of colunas">
+        {{ getValue(indexLinha, col) }}
+      </td>
+    </tr>
+  </ng-template>
 
 </p-table>

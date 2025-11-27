@@ -5,7 +5,8 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { TbBaseComponent } from "../tb-base/tb-base.component";
+import { ColunaTabela, TbBaseComponent } from "../tb-base/tb-base.component";
+
 
 @Component({
   selector: 'app-tb-cliente',
@@ -18,6 +19,41 @@ export class TbClienteComponent {
   campoPesquisa: any;
   listaFiltrada: any;
   users: any[] = [];
+
+  colunasCliente: ColunaTabela[] = [
+    { fileira: 'ownerName', coluna: 'Nome' },
+    { fileira: 'email', coluna: 'E-mail' },
+    {
+      fileira: 'CPF',
+      coluna: 'CPF',
+      mask: v => v
+        ? v.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4')
+        : '-'
+    },
+    {
+      fileira: 'telefone',
+      coluna: 'Telefone',
+      mask: v => v
+        ? v.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3')
+        : '-'
+    },
+    {
+      fileira: 'idade',
+      coluna: 'Idade',
+      mask: v => v ?? '—'
+    },
+    {
+      fileira: '',
+      coluna: 'Pets',
+      mask: (_, row) => row.pets?.map((d: { name: any; }) => d.name)
+    },
+    {
+      fileira: '',
+      coluna: 'Qtd Pets',
+      mask: (_, row) => row.pets?.length ?? 0
+    },
+  ];
+
 
   constructor(
     private service : ServiceMainService,

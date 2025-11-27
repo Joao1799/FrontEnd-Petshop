@@ -122,6 +122,7 @@ export class BodyComponent {
     logout() {;
     this.auth.logout();               // tira o token
     this.router.navigate(['/login']); // redireciona
+    this.themeService.setTheme('light');
 
     this.messageService.add({
       severity: 'success',

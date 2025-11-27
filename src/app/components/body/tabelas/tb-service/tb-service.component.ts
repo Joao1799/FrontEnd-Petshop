@@ -5,7 +5,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { TbBaseComponent } from "../tb-base/tb-base.component";
+import { ColunaTabela, TbBaseComponent } from "../tb-base/tb-base.component";
 
 @Component({
   selector: 'app-tb-service',
@@ -18,6 +18,27 @@ export class TbServiceComponent {
   campoPesquisa: any;
   listaFiltrada: any;
   services: any[] = [];
+  colunasService: ColunaTabela[] = [
+    {
+      fileira: '',
+      coluna: 'Responsavel',
+      mask: (_, row) => row.user?.name ?? '-'
+    },
+    {
+      fileira: '',
+      coluna: 'PET',
+      mask: (_, row) => row.pet?.name ?? '-'
+    },
+    {
+      fileira: '',
+      coluna: 'Funcionario',
+      mask: (_, row) => row.pet?.name ?? '-'
+    },
+    { fileira: 'observacoes', coluna: 'Observacoes' },
+    { fileira: 'motivo', coluna: 'Motivo' },
+    { fileira: 'dataHora', coluna: 'Data' },
+    { fileira: 'atendido', coluna: 'Status' },
+  ];
 
 
   constructor(

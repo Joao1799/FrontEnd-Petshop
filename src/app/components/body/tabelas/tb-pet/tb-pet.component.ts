@@ -5,7 +5,7 @@ import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
-import { TbBaseComponent } from "../tb-base/tb-base.component";
+import { ColunaTabela, TbBaseComponent } from "../tb-base/tb-base.component";
 
 @Component({
   selector: 'app-tb-pet',
@@ -18,6 +18,20 @@ export class TbPetComponent {
   campoPesquisa: any;
   listaFiltrada: any;
   pets: any[] = [];
+  colunasPet: ColunaTabela[] = [
+    { fileira: 'name', coluna: 'Nome PET' },
+    { fileira: 'breed', coluna: 'Raça' },
+    { fileira: 'age', coluna: 'Idade' },
+    { fileira: 'sexo', coluna: 'Sexo' },
+    { fileira: 'peso', coluna: 'Peso' },
+    { fileira: 'species', coluna: 'Espécie' },
+    {
+      fileira: '',
+      coluna: 'Responsavel',
+      mask: (_, row) => row.owner?.ownerName ?? '-'
+    },
+  ];
+  
 
 
   constructor(
