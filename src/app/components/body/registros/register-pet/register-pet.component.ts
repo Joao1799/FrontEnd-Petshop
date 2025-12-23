@@ -81,10 +81,17 @@ export class RegisterPetComponent {
       console.log(this.idUsuario);
       console.log(this.formPetRegister.value);
       
-      this.serviceMain.postRegisterPet(this.formPetRegister.value).subscribe(req=>{
-        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'PET cadastrado' });
+      this.serviceMain.postRegisterPet(this.formPetRegister.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.messageService.add({severity: 'success',summary: 'Success',detail: 'PET cadastrado com sucesso!'});
+          this.formPetRegister.reset();
+        },
+        error: (err) => {
+          console.log(err);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: err + 'Erro ao registrar PET.' });
+        },
       })
-      
     }
   }
 

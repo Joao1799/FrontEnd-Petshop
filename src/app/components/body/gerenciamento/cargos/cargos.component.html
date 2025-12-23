@@ -1,1 +1,16 @@
-<p>cargos works!</p>
+<section class="main-container">
+    <div class="body-main">
+        <div class="table">
+            <div class="header">
+                <div class="title">
+                    <h1>Cargos</h1>
+                </div>
+                <div class="p-input-icon-right">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" [(ngModel)]="campoPesquisa" (input)="filtrarTabela()" placeholder="Pesquise um Cargo" />
+                </div>
+            </div>
+            <app-tb-base [valorTabela]="listaFiltrada" [colunas]="colunasCargo" [cargo]="true" (statusCheckBox)="editarStatusCargo($event)"></app-tb-base>
+        </div>
+    </div>
+</section>

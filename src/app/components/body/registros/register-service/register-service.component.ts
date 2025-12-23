@@ -185,10 +185,15 @@ export class RegisterServiceComponent {
     if (this.formUserService.valid) {
       console.log('Dados do formulário:', this.formUserService.value);
       this.service.postCreateAtendimentos(this.formUserService.value).subscribe({
-        next:(res)=>{
+        next: (res) => {
           console.log(res);
-          
-        }
+          this.messageService.add({severity: 'success',summary: 'Success',detail: 'Serviço cadastrado com sucesso!'});
+          this.formUserService.reset();
+        },
+        error: (err) => {
+          console.log(err);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: err + 'Erro ao registrar serviço.' });
+        },
       })
     } else {
       console.warn('Formulário inválido');

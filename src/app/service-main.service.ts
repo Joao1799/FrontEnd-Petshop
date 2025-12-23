@@ -52,10 +52,6 @@ export class ServiceMainService {
     return this.http.delete<any[]>(`${this.apiUrl}/users/${id}`,{headers: this.getAuthHeaders()});
   }
 
-  getListCargos():Observable<any>{
-    return this.http.get<any[]>(`${this.apiUrl}/listCargo`,{headers: this.getAuthHeaders()})
-  }
-
   postRegisterUserClient(infoUser: any):Observable<any>{
     return this.http.post<any[]>(`${this.apiUrl}/users`,infoUser,{headers: this.getAuthHeaders()})
   }
@@ -81,6 +77,15 @@ export class ServiceMainService {
   //
   postCreateAtendimentos(body: any):Observable<any> {
     return this.http.post<any[]>(`${this.apiUrl}/createAtendimentos`,body,{headers: this.getAuthHeaders()});
+  }
+
+  //Cargo
+  getListCargos():Observable<any>{
+    return this.http.get<any[]>(`${this.apiUrl}/listCargo`,{headers: this.getAuthHeaders()})
+  }
+
+  putEditCargo(body:any):Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/editCargo`,body,{headers: this.getAuthHeaders()})
   }
 
 

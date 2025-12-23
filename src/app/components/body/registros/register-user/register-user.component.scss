@@ -70,9 +70,12 @@ header{
 
 
 ::ng-deep{
-  .p-inputwrapper,.p-autocomplete-input{
+  form{
+      .p-inputwrapper,.p-autocomplete-input{
       width: 100%;
   }
+  }
+
   .p-fileupload .p-fileupload-buttonbar {
     padding: 0.745rem;
     gap: 10px;

@@ -1,0 +1,96 @@
+.header {
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+
+  h1 {
+    color: #0075eb;
+    font-weight: 400;
+  }
+
+  .p-input-icon-right i {
+    position: absolute;
+    top: 35%;
+    right: 10px;
+    font-size: 1rem;
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+
+  .table {
+    width: 100%;
+    max-height: 80vh;
+    background-color: white;
+    padding: 16px;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    overflow: hidden;
+
+    .header {
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+
+      h1 {
+        color: #0075eb;
+        font-weight: 400;
+      }
+
+      .p-input-icon-right i {
+        position: absolute;
+        top: 35%;
+        right: 10px;
+        font-size: 1rem;
+      }
+    }
+
+    ::ng-deep {
+      .p-inputwrapper {
+          width: auto !important;
+      }
+      
+      .p-datatable-wrapper {
+        overflow-x: auto;
+      }
+
+      .p-button.p-button-icon-only {
+        width: 40px;
+        padding: 0.5rem 0 !important;
+      }
+
+      .p-button.p-button-text.p-button-plain:not(:disabled):hover {
+        background: #ffffff;
+        color: #6b7280;
+      }
+
+      .p-button.p-button-text.p-button-plain:not(:disabled):active {
+        background: #ffffff;
+        color: #6b7280;
+      }
+
+      .btnExcluir {
+        .p-button:hover {
+          background: rgba(255, 0, 0, 0.503);
+          color: #ffffff;
+          border-color: red;
+        }
+      }
+    }
+  }
+}
+
+#link {
+  font-weight: bold;
+  color: #0075eb;
+  text-decoration: underline;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#link:hover {
+  color: #ffae34;
+}

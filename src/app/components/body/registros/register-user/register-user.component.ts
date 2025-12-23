@@ -55,10 +55,17 @@ export class RegisterUserComponent {
   registerUser() {
     console.log(this.formUserRegister.value);
     if (this.formUserRegister.valid) {
-      this.serviceMainService.postRegisterUserClient(this.formUserRegister.value).subscribe((req) => {
-      this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Cliente cadastrado' });
-      this.formUserRegister.reset();
-      });
+      this.serviceMainService.postRegisterUserClient(this.formUserRegister.value).subscribe({
+        next: (res) => {
+          console.log(res);
+          this.messageService.add({severity: 'success',summary: 'Success',detail: 'Usuário registrado com sucesso!'});
+          this.formUserRegister.reset();
+        },
+        error: (err) => {
+          console.log(err);
+          this.messageService.add({ severity: 'error', summary: 'Error', detail: err + 'Erro ao registrar usuário.' });
+        },
+      })
     } else {
       console.log('Formulário inválido',this.formUserRegister.value);
       this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Preencha os campos corretamente!' });

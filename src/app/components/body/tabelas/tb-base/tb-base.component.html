@@ -10,6 +10,9 @@
       <th *ngFor="let col of colunas">
         {{ col.coluna }}
       </th>
+      <th  *ngIf="cargo">
+        Status
+      </th>
     </tr>
   </ng-template>
 
@@ -17,6 +20,13 @@
     <tr>
       <td *ngFor="let col of colunas">
         {{ getValue(indexLinha, col) }}
+      </td>
+      <td *ngIf="cargo">
+      <p-checkbox
+        [binary]="true"
+        [(ngModel)]="indexLinha.ativo"
+        (onChange)="onCheckboxChange(indexLinha)"
+      ></p-checkbox>
       </td>
     </tr>
   </ng-template>

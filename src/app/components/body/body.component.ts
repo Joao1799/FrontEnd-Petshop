@@ -62,8 +62,8 @@ export class BodyComponent {
 
     setInfosUserStorage(user:any) {     
         console.log(user.cargo);
-        this.cargoNome = user.cargo.nome
-        this.cargo = user.cargo
+        this.cargo = user?.cargo || null;
+        this.cargoNome = user?.cargo?.nome || "Cargo não definido"; 
         this.name = user.name
         this.email =user.email
         this.idUser = user.id

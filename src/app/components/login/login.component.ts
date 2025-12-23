@@ -44,7 +44,7 @@ export class LoginComponent {
         senha: ['', [Validators.required]],
         CPF: ['', [Validators.required]],
         name: ['', [Validators.required]],
-        cargo: ['', [Validators.required]],
+        // cargo: ['', [Validators.required]],
       });
     }
   
