@@ -44,7 +44,6 @@ export class LoginComponent {
         senha: ['', [Validators.required]],
         CPF: ['', [Validators.required]],
         name: ['', [Validators.required]],
-        // cargo: ['', [Validators.required]],
       });
     }
   
@@ -58,6 +57,7 @@ export class LoginComponent {
             localStorage.setItem('usuarioLogado', JSON.stringify(res.user));
 
             this.messageService.add({severity: 'success',summary: 'Success',detail: 'Login realizado com Sucesso'});
+            this.formUserlogin.reset
             this.router.navigate(['/home'])
           },
           error: (error) => {
@@ -80,6 +80,7 @@ export class LoginComponent {
           next: (res) => {
             this.messageService.add({ severity: 'success', summary: 'Success',detail: 'Conta criada com Sucesso'});
             this.isRegistro = !this.isRegistro;
+            this.formUserRegistro.reset
           },
           error: (error) => {
             console.log(error);

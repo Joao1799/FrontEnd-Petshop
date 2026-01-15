@@ -7,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   providedIn: 'root'
 })
 export class ServiceMainService {
-    private apiUrl = 'http://localhost:3000/api';
+    private apiUrl = 'https://backend-petshop-ebqe.onrender.com/api';
 
   constructor(
     private http: HttpClient,
