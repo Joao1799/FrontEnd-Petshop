@@ -1,3 +1,7 @@
-    <router-outlet></router-outlet>
-    <p-toast></p-toast>
+<div *ngIf="loading" id="loading-screen">
+  <img src="/images/dogLoading.gif" />
+  <h1 id="title">My Pet Care</h1>
+</div>
 
+<router-outlet *ngIf="!loading" ></router-outlet>
+<p-toast></p-toast>
